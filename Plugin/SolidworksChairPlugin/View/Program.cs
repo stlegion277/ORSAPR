@@ -16,7 +16,7 @@ namespace SolidworksChairPlugin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SolidworksChairPlugin());
+            Application.Run(new MainForm());
         }
     }
 }

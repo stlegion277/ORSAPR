@@ -36,6 +36,18 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SolidWorks.Interop.sldworks">
+      <HintPath>D:\SolidWorks2020\SOLIDWORKS\api\redist\SolidWorks.Interop.sldworks.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.swcommands">
+      <HintPath>D:\SolidWorks2020\SOLIDWORKS\api\redist\SolidWorks.Interop.swcommands.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.swconst">
+      <HintPath>D:\SolidWorks2020\SOLIDWORKS\api\redist\SolidWorks.Interop.swconst.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

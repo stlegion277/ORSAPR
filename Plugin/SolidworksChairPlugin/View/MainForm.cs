@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SolidworksChairPlugin.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,21 +11,31 @@ using System.Windows.Forms;
 
 namespace SolidworksChairPlugin
 {
-    public partial class SolidworksChairPlugin : Form
+    public partial class MainForm : Form
     {
-        public SolidworksChairPlugin()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private ChairBuilder _builder = new ChairBuilder();
+
+
+
+        private void ClosingSolidWorksButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
+        private void BondParametersGroupBox_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void BuildStartButton_Click(object sender, EventArgs e)
+        {
+            ChairBuilder chairBuilder = new ChairBuilder();
+            _builder.BuildingModel(chairBuilder);
         }
     }
 }

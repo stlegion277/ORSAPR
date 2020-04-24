@@ -1,6 +1,6 @@
 ﻿namespace SolidworksChairPlugin
 {
-    partial class SolidworksChairPlugin
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -49,20 +49,20 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.BuildStartButton = new System.Windows.Forms.Button();
+            this.ClosingSolidWorksButton = new System.Windows.Forms.Button();
+            this.LegParametersGroupBox = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.SeatParametersGroupBox = new System.Windows.Forms.GroupBox();
+            this.BondParametersGroupBox = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.LegParametersGroupBox.SuspendLayout();
+            this.SeatParametersGroupBox.SuspendLayout();
+            this.BondParametersGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -236,60 +236,43 @@
             this.label12.TabIndex = 20;
             this.label12.Text = "Высота:";
             // 
-            // button1
+            // BuildStartButton
             // 
-            this.button1.Location = new System.Drawing.Point(12, 384);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(233, 28);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Выполнить моделирование";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BuildStartButton.Location = new System.Drawing.Point(12, 384);
+            this.BuildStartButton.Name = "BuildStartButton";
+            this.BuildStartButton.Size = new System.Drawing.Size(233, 28);
+            this.BuildStartButton.TabIndex = 21;
+            this.BuildStartButton.Text = "Выполнить моделирование";
+            this.BuildStartButton.UseVisualStyleBackColor = true;
+            this.BuildStartButton.Click += new System.EventHandler(this.BuildStartButton_Click);
             // 
-            // button2
+            // ClosingSolidWorksButton
             // 
-            this.button2.Location = new System.Drawing.Point(12, 418);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(233, 28);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Закрыть SolidWorks";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ClosingSolidWorksButton.Location = new System.Drawing.Point(12, 418);
+            this.ClosingSolidWorksButton.Name = "ClosingSolidWorksButton";
+            this.ClosingSolidWorksButton.Size = new System.Drawing.Size(233, 28);
+            this.ClosingSolidWorksButton.TabIndex = 22;
+            this.ClosingSolidWorksButton.Text = "Закрыть SolidWorks";
+            this.ClosingSolidWorksButton.UseVisualStyleBackColor = true;
+            this.ClosingSolidWorksButton.Click += new System.EventHandler(this.ClosingSolidWorksButton_Click);
             // 
-            // groupBox1
+            // LegParametersGroupBox
             // 
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Location = new System.Drawing.Point(12, 136);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(233, 118);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ножка";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(189, 24);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(26, 17);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "мм";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(189, 52);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(26, 17);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "мм";
+            this.LegParametersGroupBox.Controls.Add(this.label15);
+            this.LegParametersGroupBox.Controls.Add(this.label14);
+            this.LegParametersGroupBox.Controls.Add(this.label13);
+            this.LegParametersGroupBox.Controls.Add(this.label4);
+            this.LegParametersGroupBox.Controls.Add(this.label5);
+            this.LegParametersGroupBox.Controls.Add(this.label6);
+            this.LegParametersGroupBox.Controls.Add(this.textBox1);
+            this.LegParametersGroupBox.Controls.Add(this.textBox2);
+            this.LegParametersGroupBox.Controls.Add(this.textBox3);
+            this.LegParametersGroupBox.Location = new System.Drawing.Point(12, 136);
+            this.LegParametersGroupBox.Name = "LegParametersGroupBox";
+            this.LegParametersGroupBox.Size = new System.Drawing.Size(233, 118);
+            this.LegParametersGroupBox.TabIndex = 23;
+            this.LegParametersGroupBox.TabStop = false;
+            this.LegParametersGroupBox.Text = "Ножка";
             // 
             // label15
             // 
@@ -300,60 +283,60 @@
             this.label15.TabIndex = 26;
             this.label15.Text = "мм";
             // 
-            // groupBox2
+            // label14
             // 
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(233, 118);
-            this.groupBox2.TabIndex = 24;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Сиденье";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(189, 52);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(26, 17);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "мм";
             // 
-            // groupBox3
+            // label13
             // 
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.textBox7);
-            this.groupBox3.Controls.Add(this.textBox8);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.textBox9);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Location = new System.Drawing.Point(12, 260);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(233, 118);
-            this.groupBox3.TabIndex = 25;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Связь";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(189, 24);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(26, 17);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "мм";
             // 
-            // label16
+            // SeatParametersGroupBox
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(189, 23);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(26, 17);
-            this.label16.TabIndex = 21;
-            this.label16.Text = "мм";
+            this.SeatParametersGroupBox.Controls.Add(this.label7);
+            this.SeatParametersGroupBox.Controls.Add(this.label9);
+            this.SeatParametersGroupBox.Controls.Add(this.label8);
+            this.SeatParametersGroupBox.Controls.Add(this.textBox4);
+            this.SeatParametersGroupBox.Controls.Add(this.textBox5);
+            this.SeatParametersGroupBox.Controls.Add(this.textBox6);
+            this.SeatParametersGroupBox.Controls.Add(this.label2);
+            this.SeatParametersGroupBox.Controls.Add(this.label3);
+            this.SeatParametersGroupBox.Controls.Add(this.label1);
+            this.SeatParametersGroupBox.Location = new System.Drawing.Point(12, 12);
+            this.SeatParametersGroupBox.Name = "SeatParametersGroupBox";
+            this.SeatParametersGroupBox.Size = new System.Drawing.Size(233, 118);
+            this.SeatParametersGroupBox.TabIndex = 24;
+            this.SeatParametersGroupBox.TabStop = false;
+            this.SeatParametersGroupBox.Text = "Сиденье";
             // 
-            // label17
+            // BondParametersGroupBox
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(189, 49);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(26, 17);
-            this.label17.TabIndex = 22;
-            this.label17.Text = "мм";
+            this.BondParametersGroupBox.Controls.Add(this.label18);
+            this.BondParametersGroupBox.Controls.Add(this.label17);
+            this.BondParametersGroupBox.Controls.Add(this.label16);
+            this.BondParametersGroupBox.Controls.Add(this.label10);
+            this.BondParametersGroupBox.Controls.Add(this.textBox7);
+            this.BondParametersGroupBox.Controls.Add(this.textBox8);
+            this.BondParametersGroupBox.Controls.Add(this.label11);
+            this.BondParametersGroupBox.Controls.Add(this.textBox9);
+            this.BondParametersGroupBox.Controls.Add(this.label12);
+            this.BondParametersGroupBox.Location = new System.Drawing.Point(12, 260);
+            this.BondParametersGroupBox.Name = "BondParametersGroupBox";
+            this.BondParametersGroupBox.Size = new System.Drawing.Size(233, 118);
+            this.BondParametersGroupBox.TabIndex = 25;
+            this.BondParametersGroupBox.TabStop = false;
+            this.BondParametersGroupBox.Text = "Связь";
+            this.BondParametersGroupBox.Enter += new System.EventHandler(this.BondParametersGroupBox_Enter);
             // 
             // label18
             // 
@@ -364,24 +347,42 @@
             this.label18.TabIndex = 23;
             this.label18.Text = "мм";
             // 
-            // SolidworksChairPlugin
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(189, 49);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(26, 17);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "мм";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(189, 23);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(26, 17);
+            this.label16.TabIndex = 21;
+            this.label16.Text = "мм";
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(259, 462);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Name = "SolidworksChairPlugin";
+            this.Controls.Add(this.BondParametersGroupBox);
+            this.Controls.Add(this.SeatParametersGroupBox);
+            this.Controls.Add(this.LegParametersGroupBox);
+            this.Controls.Add(this.ClosingSolidWorksButton);
+            this.Controls.Add(this.BuildStartButton);
+            this.Name = "MainForm";
             this.Text = "Мой табурет";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.LegParametersGroupBox.ResumeLayout(false);
+            this.LegParametersGroupBox.PerformLayout();
+            this.SeatParametersGroupBox.ResumeLayout(false);
+            this.SeatParametersGroupBox.PerformLayout();
+            this.BondParametersGroupBox.ResumeLayout(false);
+            this.BondParametersGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -409,14 +410,14 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button BuildStartButton;
+        private System.Windows.Forms.Button ClosingSolidWorksButton;
+        private System.Windows.Forms.GroupBox LegParametersGroupBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox SeatParametersGroupBox;
+        private System.Windows.Forms.GroupBox BondParametersGroupBox;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
