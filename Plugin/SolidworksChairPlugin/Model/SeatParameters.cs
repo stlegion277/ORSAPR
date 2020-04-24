@@ -12,6 +12,13 @@ namespace SolidworksChairPlugin.Model
         private int _thickness;
         private int _length;
 
+
+        public SeatParameters(int width, int thickness, int length)
+        {
+            Width = width;
+            Thickness = thickness;
+            Length = length;
+        }
         public int Width
         {
             get

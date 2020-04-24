@@ -13,7 +13,32 @@ namespace SolidworksChairPlugin.Model
         private  int _width;
 
         private int _length;
-        readonly LegParameters legParameters = new LegParameters();
+
+        private LegParameters _legParameters;
+
+
+        public BondParameters(int height, int width, int length, LegParameters legParameters)
+        {
+            Height = height;
+            Width = width;
+            Length = length;
+            LegParameters = legParameters;
+        }
+        public LegParameters LegParameters
+        {
+            get
+            {
+                return _legParameters;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException();
+                }
+                _legParameters = value;
+            }
+        }
 
         public int Height
         {
@@ -51,7 +76,7 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-                if (value < 20 || value > legParameters.Width)
+                if (value < 20 || value > LegParameters.Width)
                 {
                     throw new ArgumentOutOfRangeException();
                 }

@@ -61,6 +61,13 @@ namespace SolidworksChairPlugin.Model
                 _length = value;
             }
         }
+
+        public LegParameters(int height, int width, int length)
+        {
+            Height = height;
+            Width = width;
+            Length = length;
+        }
         
     }
 }
