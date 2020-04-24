@@ -9,9 +9,9 @@ namespace SolidworksChairPlugin.Model
 {
     class SolidWorksApi
     {
-        private SldWorks solidWorks;
+        private SldWorks _solidWorks;
 
-        private IModelDoc2 model;
+        private IModelDoc2 _model;
 
 
         private object IsThereSolidWorks()
@@ -30,8 +30,8 @@ namespace SolidworksChairPlugin.Model
 
         private void StartSolidWorks(object processSolidWorks)
         {
-            solidWorks = (SldWorks)processSolidWorks;
-            solidWorks.Visible = true;
+            _solidWorks = (SldWorks)processSolidWorks;
+            _solidWorks.Visible = true;
         }
 
         public void BuildingModel(SolidWorksApi solidWorksApi)
@@ -42,8 +42,8 @@ namespace SolidworksChairPlugin.Model
 
         private void CreateSolidWorksFile()
         {
-            solidWorks.NewPart();
-            model = solidWorks.IActiveDoc2;
+            _solidWorks.NewPart();
+            _model = _solidWorks.IActiveDoc2;
         }
 
 

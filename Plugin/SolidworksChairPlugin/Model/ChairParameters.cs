@@ -77,40 +77,22 @@ namespace SolidworksChairPlugin.Model
         public void ValidateParameters()
         {
             CheckValueRange(BondParameters.Width, BondParameters.Width, LegParameters.Width, 20);
+
             CheckValueRange(BondParameters.Height, BondParameters.Width, 30, 50);
+
             CheckValueRange(SeatParameters.Length, SeatParameters.Length, 320, 500);
+
             CheckValueRange(SeatParameters.Thickness, SeatParameters.Thickness, 40, 100);
+
             CheckValueRange(LegParameters.Length, LegParameters.Length, 40, 100);
+
             CheckValueRange(LegParameters.Height, LegParameters.Length, 500, 1000);
-            if (BondParameters.Width > LegParameters.Width || BondParameters.Width < 20)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-            if (BondParameters.Height < 30 || BondParameters.Width < 50)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
+
             if (SeatParameters.Width != SeatParameters.Length)
             {
                 throw new ArgumentOutOfRangeException();
             }
-            if (SeatParameters.Length < 320 || SeatParameters.Length > 500)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-            if (SeatParameters.Thickness < 40 || SeatParameters.Thickness > 100)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-            if (LegParameters.Length < 40 || LegParameters.Length > 100)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
             if (LegParameters.Width != LegParameters.Length)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-            if (LegParameters.Height < 500 || LegParameters.Length > 1000)
             {
                 throw new ArgumentOutOfRangeException();
             }

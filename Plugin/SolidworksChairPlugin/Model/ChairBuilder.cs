@@ -17,5 +17,25 @@ namespace SolidworksChairPlugin.Model
 
         }
 
+        private void CreateBond()
+        {
+
+        }
+
+        private void CreateSeat()
+        {
+
+        }
+
+        private void CreateLeg()
+        {
+
+        }
+
+        public void CreateChair()
+        {
+
+        }
+
     }
 }
