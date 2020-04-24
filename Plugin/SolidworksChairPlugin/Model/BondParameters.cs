@@ -16,13 +16,31 @@ namespace SolidworksChairPlugin.Model
 
         private LegParameters _legParameters;
 
+        private SeatParameters _seatParameters;
 
-        public BondParameters(int height, int width, int length, LegParameters legParameters)
+
+        public BondParameters(int height, int width, int length, LegParameters legParameters, SeatParameters seatParameters)
         {
             Height = height;
             Width = width;
             Length = length;
             LegParameters = legParameters;
+            SeatParameters = seatParameters;
+        }
+
+        public SeatParameters SeatParameters
+        {
+            get
+            {
+                return _seatParameters;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException();
+                }
+            }
         }
         public LegParameters LegParameters
         {
@@ -60,11 +78,14 @@ namespace SolidworksChairPlugin.Model
         {
             get
             {
-                return _height;
+                return _length;
             }
             set
             {
-
+                if (value != (SeatParameters.Length - 5 - (LegParameters.Width * 2)))
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
             }
         }
 

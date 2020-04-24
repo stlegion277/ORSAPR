@@ -67,9 +67,21 @@ namespace SolidworksChairPlugin.Model
                 }
             }
         }
-
+        public void CheckValueRange(int parameter1, int parameter2, int min, int max)
+        {
+            if (parameter1 < min || parameter2 > max)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+        }
         public void ValidateParameters()
         {
+            CheckValueRange(BondParameters.Width, BondParameters.Width, LegParameters.Width, 20);
+            CheckValueRange(BondParameters.Height, BondParameters.Width, 30, 50);
+            CheckValueRange(SeatParameters.Length, SeatParameters.Length, 320, 500);
+            CheckValueRange(SeatParameters.Thickness, SeatParameters.Thickness, 40, 100);
+            CheckValueRange(LegParameters.Length, LegParameters.Length, 40, 100);
+            CheckValueRange(LegParameters.Height, LegParameters.Length, 500, 1000);
             if (BondParameters.Width > LegParameters.Width || BondParameters.Width < 20)
             {
                 throw new ArgumentOutOfRangeException();
