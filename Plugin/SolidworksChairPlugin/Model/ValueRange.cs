@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace SolidworksChairPlugin.Model
 {
-    class ChairParameters
+    class ValueRange
     {
+        public int Min { get; set; }
 
+        public int Max { get; set; }
     }
 }

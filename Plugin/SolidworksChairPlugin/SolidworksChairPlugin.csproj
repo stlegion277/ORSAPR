@@ -66,6 +66,7 @@
     <Compile Include="Model\ChairParameters.cs" />
     <Compile Include="Model\LegParameters.cs" />
     <Compile Include="Model\SeatParameters.cs" />
+    <Compile Include="Model\ValueRange.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -8,5 +8,59 @@ namespace SolidworksChairPlugin.Model
 {
     class LegParameters
     {
+        private int _height;
+
+        private int _width;
+
+        private int _length;
+
+        public int Height
+        {
+            get
+            {
+                return _height;
+            }
+            set
+            {
+                if (value < 500 || value > 1000)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                _height = value;
+            }
+        }
+
+        public int Width
+        {
+            get
+            {
+                return _width;
+            }
+            set
+            {
+                if (value != _length)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                _width = value;
+            }
+        }
+
+        public int Length
+        {
+            get
+            {
+                return _length;
+            }
+            set
+            {
+                if (value < 40 || value > 100)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                _length = value;
+            }
+        }
+        
     }
 }
