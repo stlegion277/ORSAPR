@@ -27,7 +27,7 @@ namespace SolidworksChairPlugin.Model
 
         }
 
-        private void CreateLeg()
+        private void CreateLeg(LegParameters legParameters)
         {
 
         }
