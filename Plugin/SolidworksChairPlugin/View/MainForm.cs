@@ -39,8 +39,7 @@ namespace SolidworksChairPlugin
 
         private void BuildStartButton_Click(object sender, EventArgs e)
         {
-            SolidWorksApi solidWorksApi = new SolidWorksApi();
-            solidWorksApi.BuildingModel(solidWorksApi);
+            _chairBuilder.ChairBuilding(_chairParameters, _solidWorksApi);
            
         }
     }

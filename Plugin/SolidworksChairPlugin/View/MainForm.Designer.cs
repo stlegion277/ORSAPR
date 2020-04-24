@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.LegLengthTextBox = new System.Windows.Forms.TextBox();
+            this.LegWidthTextBox = new System.Windows.Forms.TextBox();
+            this.LegHeightTextBox = new System.Windows.Forms.TextBox();
+            this.SeatLengthTextBox = new System.Windows.Forms.TextBox();
+            this.SeatWidthTextBox = new System.Windows.Forms.TextBox();
+            this.SeatThicknessTextBox = new System.Windows.Forms.TextBox();
+            this.BondLengthTextBox = new System.Windows.Forms.TextBox();
+            this.BondWidthTextBox = new System.Windows.Forms.TextBox();
+            this.BondHeightTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -60,6 +61,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.SeatLengthToolTIp = new System.Windows.Forms.ToolTip(this.components);
             this.LegParametersGroupBox.SuspendLayout();
             this.SeatParametersGroupBox.SuspendLayout();
             this.BondParametersGroupBox.SuspendLayout();
@@ -119,68 +121,70 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Высота:";
             // 
-            // textBox1
+            // LegLengthTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(83, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 6;
+            this.LegLengthTextBox.Location = new System.Drawing.Point(83, 21);
+            this.LegLengthTextBox.Name = "LegLengthTextBox";
+            this.LegLengthTextBox.Size = new System.Drawing.Size(100, 22);
+            this.LegLengthTextBox.TabIndex = 6;
             // 
-            // textBox2
+            // LegWidthTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(83, 49);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 7;
+            this.LegWidthTextBox.Location = new System.Drawing.Point(83, 49);
+            this.LegWidthTextBox.Name = "LegWidthTextBox";
+            this.LegWidthTextBox.Size = new System.Drawing.Size(100, 22);
+            this.LegWidthTextBox.TabIndex = 7;
             // 
-            // textBox3
+            // LegHeightTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(83, 77);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 8;
+            this.LegHeightTextBox.Location = new System.Drawing.Point(83, 77);
+            this.LegHeightTextBox.Name = "LegHeightTextBox";
+            this.LegHeightTextBox.Size = new System.Drawing.Size(100, 22);
+            this.LegHeightTextBox.TabIndex = 8;
             // 
-            // textBox4
+            // SeatLengthTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(83, 27);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 9;
+            this.SeatLengthTextBox.Location = new System.Drawing.Point(83, 27);
+            this.SeatLengthTextBox.Multiline = true;
+            this.SeatLengthTextBox.Name = "SeatLengthTextBox";
+            this.SeatLengthTextBox.ShortcutsEnabled = false;
+            this.SeatLengthTextBox.Size = new System.Drawing.Size(100, 22);
+            this.SeatLengthTextBox.TabIndex = 9;
             // 
-            // textBox5
+            // SeatWidthTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(83, 55);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 10;
+            this.SeatWidthTextBox.Location = new System.Drawing.Point(83, 55);
+            this.SeatWidthTextBox.Name = "SeatWidthTextBox";
+            this.SeatWidthTextBox.Size = new System.Drawing.Size(100, 22);
+            this.SeatWidthTextBox.TabIndex = 10;
             // 
-            // textBox6
+            // SeatThicknessTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(83, 83);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 22);
-            this.textBox6.TabIndex = 11;
+            this.SeatThicknessTextBox.Location = new System.Drawing.Point(83, 83);
+            this.SeatThicknessTextBox.Name = "SeatThicknessTextBox";
+            this.SeatThicknessTextBox.Size = new System.Drawing.Size(100, 22);
+            this.SeatThicknessTextBox.TabIndex = 11;
             // 
-            // textBox7
+            // BondLengthTextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(83, 18);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 22);
-            this.textBox7.TabIndex = 12;
+            this.BondLengthTextBox.Location = new System.Drawing.Point(83, 18);
+            this.BondLengthTextBox.Name = "BondLengthTextBox";
+            this.BondLengthTextBox.Size = new System.Drawing.Size(100, 22);
+            this.BondLengthTextBox.TabIndex = 12;
             // 
-            // textBox8
+            // BondWidthTextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(83, 46);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 22);
-            this.textBox8.TabIndex = 13;
+            this.BondWidthTextBox.Location = new System.Drawing.Point(83, 46);
+            this.BondWidthTextBox.Name = "BondWidthTextBox";
+            this.BondWidthTextBox.Size = new System.Drawing.Size(100, 22);
+            this.BondWidthTextBox.TabIndex = 13;
             // 
-            // textBox9
+            // BondHeightTextBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(83, 74);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 22);
-            this.textBox9.TabIndex = 14;
+            this.BondHeightTextBox.Location = new System.Drawing.Point(83, 74);
+            this.BondHeightTextBox.Name = "BondHeightTextBox";
+            this.BondHeightTextBox.Size = new System.Drawing.Size(100, 22);
+            this.BondHeightTextBox.TabIndex = 14;
             // 
             // label7
             // 
@@ -264,9 +268,9 @@
             this.LegParametersGroupBox.Controls.Add(this.label4);
             this.LegParametersGroupBox.Controls.Add(this.label5);
             this.LegParametersGroupBox.Controls.Add(this.label6);
-            this.LegParametersGroupBox.Controls.Add(this.textBox1);
-            this.LegParametersGroupBox.Controls.Add(this.textBox2);
-            this.LegParametersGroupBox.Controls.Add(this.textBox3);
+            this.LegParametersGroupBox.Controls.Add(this.LegLengthTextBox);
+            this.LegParametersGroupBox.Controls.Add(this.LegWidthTextBox);
+            this.LegParametersGroupBox.Controls.Add(this.LegHeightTextBox);
             this.LegParametersGroupBox.Location = new System.Drawing.Point(12, 136);
             this.LegParametersGroupBox.Name = "LegParametersGroupBox";
             this.LegParametersGroupBox.Size = new System.Drawing.Size(233, 118);
@@ -306,9 +310,9 @@
             this.SeatParametersGroupBox.Controls.Add(this.label7);
             this.SeatParametersGroupBox.Controls.Add(this.label9);
             this.SeatParametersGroupBox.Controls.Add(this.label8);
-            this.SeatParametersGroupBox.Controls.Add(this.textBox4);
-            this.SeatParametersGroupBox.Controls.Add(this.textBox5);
-            this.SeatParametersGroupBox.Controls.Add(this.textBox6);
+            this.SeatParametersGroupBox.Controls.Add(this.SeatLengthTextBox);
+            this.SeatParametersGroupBox.Controls.Add(this.SeatWidthTextBox);
+            this.SeatParametersGroupBox.Controls.Add(this.SeatThicknessTextBox);
             this.SeatParametersGroupBox.Controls.Add(this.label2);
             this.SeatParametersGroupBox.Controls.Add(this.label3);
             this.SeatParametersGroupBox.Controls.Add(this.label1);
@@ -325,10 +329,10 @@
             this.BondParametersGroupBox.Controls.Add(this.label17);
             this.BondParametersGroupBox.Controls.Add(this.label16);
             this.BondParametersGroupBox.Controls.Add(this.label10);
-            this.BondParametersGroupBox.Controls.Add(this.textBox7);
-            this.BondParametersGroupBox.Controls.Add(this.textBox8);
+            this.BondParametersGroupBox.Controls.Add(this.BondLengthTextBox);
+            this.BondParametersGroupBox.Controls.Add(this.BondWidthTextBox);
             this.BondParametersGroupBox.Controls.Add(this.label11);
-            this.BondParametersGroupBox.Controls.Add(this.textBox9);
+            this.BondParametersGroupBox.Controls.Add(this.BondHeightTextBox);
             this.BondParametersGroupBox.Controls.Add(this.label12);
             this.BondParametersGroupBox.Location = new System.Drawing.Point(12, 260);
             this.BondParametersGroupBox.Name = "BondParametersGroupBox";
@@ -369,12 +373,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(259, 462);
             this.Controls.Add(this.BondParametersGroupBox);
             this.Controls.Add(this.SeatParametersGroupBox);
             this.Controls.Add(this.LegParametersGroupBox);
             this.Controls.Add(this.ClosingSolidWorksButton);
             this.Controls.Add(this.BuildStartButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MainForm";
             this.Text = "Мой табурет";
             this.LegParametersGroupBox.ResumeLayout(false);
@@ -395,15 +401,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox LegLengthTextBox;
+        private System.Windows.Forms.TextBox LegWidthTextBox;
+        private System.Windows.Forms.TextBox LegHeightTextBox;
+        private System.Windows.Forms.TextBox SeatLengthTextBox;
+        private System.Windows.Forms.TextBox SeatWidthTextBox;
+        private System.Windows.Forms.TextBox SeatThicknessTextBox;
+        private System.Windows.Forms.TextBox BondLengthTextBox;
+        private System.Windows.Forms.TextBox BondWidthTextBox;
+        private System.Windows.Forms.TextBox BondHeightTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -421,6 +427,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ToolTip SeatLengthToolTIp;
     }
 }
 

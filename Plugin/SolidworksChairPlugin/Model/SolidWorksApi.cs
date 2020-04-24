@@ -19,7 +19,7 @@ namespace SolidworksChairPlugin.Model
 
         private const string SelectionAxisType = "PLANE";
 
-        private object IsThereSolidWorks()
+        public object IsThereSolidWorks()
         {
             try
             {
@@ -33,57 +33,59 @@ namespace SolidworksChairPlugin.Model
             }
         }
 
-        private void StartSolidWorks(object processSolidWorks)
+        public void StartSolidWorks(object processSolidWorks)
         {
             _solidWorks = (SldWorks)processSolidWorks;
             _solidWorks.Visible = true;
         }
 
-        private void DrawingRectangle(int xaxis, int yaxis, int center = 0)
+        public void DrawingRectangle(int xaxis, int yaxis, int center = 0)
         {
             _model.SketchManager.CreateCenterRectangle(center, 0, 0, xaxis, yaxis, 0);
         }
-        public void BuildingModel(SolidWorksApi solidWorksApi)
-        {
-            object solidWorks = IsThereSolidWorks();
-            StartSolidWorks(solidWorks);
-        }
 
-        private void CreateSolidWorksFile()
+        public void CreateSolidWorksFile()
         {
             _solidWorks.NewPart();
             _model = _solidWorks.IActiveDoc2;
         }
 
-        private void LayerSelection()
+        public void LayerSelection()
         {
             _model.Extension.SelectByID2(TopAxisName, SelectionAxisType, 0, 0, 0, false, 0, null, 0);
         }
 
-        private void SketchSelection()
+        public void SketchSelection()
         {
             _model.SketchManager.InsertSketch(true);
         }
 
-        private void SetIsometricView()
+        public void SetIsometricView()
         {
             _model.ShowNamedView2(NameView, -1);
             _model.ViewZoomtofit2();
         }
 
-        private void RemoveAllocations()
+        public void RemoveAllocations()
         {
             _model.ClearSelection2(true);
         }
 
-        private void FigureCutBySketch(int height, bool upDirection = true)
+        public void FigureCutBySketch(int height, bool upDirection = true)
         {
-
+            _model.FeatureManager.FeatureCut4(true, false, upDirection, 0, 0, height, 0.01, false, false, false, false,
+               1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, false, true, true, true, true, false, 0, 0, false, false);
         }
 
-        private void FigureElongationBySketch(int height)
+        public void FigureElongationBySketch(int height)
         {
+            _model.FeatureManager.FeatureExtrusion2(true, false, false, 0, 0, height, 0.01, false, false, false, false,
+               1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, true, 0, 0, false);
+        }
 
+        public void SelectLayerByRay(int height)
+        {
+            _model.Extension.SelectByRay(0, height, 0, 1, height, 1, 1, 2, false, 0, 0);
         }
     }
 }
