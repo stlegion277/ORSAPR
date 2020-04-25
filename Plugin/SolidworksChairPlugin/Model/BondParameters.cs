@@ -8,17 +8,40 @@ namespace SolidworksChairPlugin.Model
 {
     class BondParameters
     {
+        /// <summary>
+        /// Высота(толщина) связи между ножками табурета 
+        /// </summary>
         private int _height;
 
-        private  int _width;
+        /// <summary>
+        /// Ширина связи между ножками табурета 
+        /// </summary>
+        private int _width;
 
+        /// <summary>
+        /// Длина связи между ножками табурета 
+        /// </summary>
         private int _length;
 
+        /// <summary>
+        /// Обьект класса, который нужен для проверки зависимых параметров 
+        /// </summary>
         private LegParameters _legParameters;
 
+        /// <summary>
+        /// Обьект класса, который нужен для проверки зависимых параметров
+        /// </summary>
         private SeatParameters _seatParameters;
 
 
+        /// <summary>
+        /// Конструктор класса параметров связей между ножек табурета
+        /// </summary>
+        /// <param name="height"></param>
+        /// <param name="width"></param>
+        /// <param name="length"></param>
+        /// <param name="legParameters">нужен здесь для проверки зависимых параметров</param>
+        /// <param name="seatParameters">нужен здесь для проверки зависимых параметров</param>
         public BondParameters(int height, int width, int length, LegParameters legParameters, SeatParameters seatParameters)
         {
             Height = height;
@@ -58,6 +81,9 @@ namespace SolidworksChairPlugin.Model
             }
         }
 
+        /// <summary>
+        /// Свойства высоты связи между ножками табурета
+        /// </summary>
         public int Height
         {
             get
@@ -74,6 +100,9 @@ namespace SolidworksChairPlugin.Model
             }
         }
 
+        /// <summary>
+        /// Свойства длины связи между ножками табурета
+        /// </summary>
         public int Length
         {
             get
@@ -89,6 +118,9 @@ namespace SolidworksChairPlugin.Model
             }
         }
 
+        /// <summary>
+        /// Свойства ширины связи между ножками табурета
+        /// </summary>
         public int Width
         {
             get

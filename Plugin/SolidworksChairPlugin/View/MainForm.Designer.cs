@@ -62,6 +62,14 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.SeatLengthToolTIp = new System.Windows.Forms.ToolTip(this.components);
+            this.SeatWidthToolTIp = new System.Windows.Forms.ToolTip(this.components);
+            this.SeatThicknessToolTIp = new System.Windows.Forms.ToolTip(this.components);
+            this.LegLengthToolTIp = new System.Windows.Forms.ToolTip(this.components);
+            this.LegWidthToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.LegHeightToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.BondLengthToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.BondWidthToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.BondHeightToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.LegParametersGroupBox.SuspendLayout();
             this.SeatParametersGroupBox.SuspendLayout();
             this.BondParametersGroupBox.SuspendLayout();
@@ -428,6 +436,14 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ToolTip SeatLengthToolTIp;
+        private System.Windows.Forms.ToolTip SeatWidthToolTIp;
+        private System.Windows.Forms.ToolTip SeatThicknessToolTIp;
+        private System.Windows.Forms.ToolTip LegLengthToolTIp;
+        private System.Windows.Forms.ToolTip LegWidthToolTip;
+        private System.Windows.Forms.ToolTip LegHeightToolTip;
+        private System.Windows.Forms.ToolTip BondLengthToolTip;
+        private System.Windows.Forms.ToolTip BondWidthToolTip;
+        private System.Windows.Forms.ToolTip BondHeightToolTip;
     }
 }
 

@@ -8,10 +8,19 @@ namespace SolidworksChairPlugin.Model
 {
     class LegParameters
     {
+        /// <summary>
+        /// Высота ножки
+        /// </summary>
         private int _height;
 
+        /// <summary>
+        /// Ширина ножки
+        /// </summary>
         private int _width;
 
+        /// <summary>
+        /// Длина ножки
+        /// </summary>
         private int _length;
 
         public int Height
@@ -62,6 +71,12 @@ namespace SolidworksChairPlugin.Model
             }
         }
 
+        /// <summary>
+        /// Конструктор класса параметров ножек табурета
+        /// </summary>
+        /// <param name="height"></param>
+        /// <param name="width"></param>
+        /// <param name="length"></param>
         public LegParameters(int height, int width, int length)
         {
             Height = height;

@@ -8,13 +8,27 @@ namespace SolidworksChairPlugin.Model
 {
     class ChairParameters
     {
+        /// <summary>
+        /// Обьект класса связи между ножками
+        /// </summary>
         private BondParameters _bondParameters;
 
+        /// <summary>
+        /// Обьект класса сидушки табурета
+        /// </summary>
         private SeatParameters _seatParameters;
 
+        /// <summary>
+        /// Обьект класса ножек табурета
+        /// </summary>
         private LegParameters _legParameters;
 
-
+        /// <summary>
+        /// Конструктор класса параметров всего табурета
+        /// </summary>
+        /// <param name="legParameters"></param>
+        /// <param name="seatParameters"></param>
+        /// <param name="bondParameters"></param>
         public ChairParameters(LegParameters legParameters, SeatParameters seatParameters, BondParameters bondParameters)
         {
             LegParameters = legParameters;
@@ -67,6 +81,13 @@ namespace SolidworksChairPlugin.Model
                 }
             }
         }
+        /// <summary>
+        /// Метод проверки параметров табурета
+        /// </summary>
+        /// <param name="parameter1">первый параметр табурета</param>
+        /// <param name="parameter2">второй параметр табурета</param>
+        /// <param name="min">минимально допустимое значение параметра табурета</param>
+        /// <param name="max">максимально допустимое значение параметра табурета</param>
         public void CheckValueRange(int parameter1, int parameter2, int min, int max)
         {
             if (parameter1 < min || parameter2 > max)
@@ -74,6 +95,9 @@ namespace SolidworksChairPlugin.Model
                 throw new ArgumentOutOfRangeException();
             }
         }
+        /// <summary>
+        /// Валидация параметров табурета
+        /// </summary>
         public void ValidateParameters()
         {
             CheckValueRange(BondParameters.Width, BondParameters.Width, LegParameters.Width, 20);
@@ -88,6 +112,7 @@ namespace SolidworksChairPlugin.Model
 
             CheckValueRange(LegParameters.Height, LegParameters.Length, 500, 1000);
 
+            //проверка зависимых параметров, конкретно здесь проверяется равны ли стороны сидушки
             if (SeatParameters.Width != SeatParameters.Length)
             {
                 throw new ArgumentOutOfRangeException();
