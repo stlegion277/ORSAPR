@@ -18,18 +18,24 @@ namespace SolidworksChairPlugin
             InitializeComponent();
         }
 
-        private ChairBuilder _chairBuilder;
 
         private ChairParameters _chairParameters;
+        private SolidWorksApi _solidWorksApi = new SolidWorksApi();
 
-        private SolidWorksApi _solidWorksApi;
+        private ChairBuilder _chairBuilder = new ChairBuilder();
 
 
-
+        private void KeyPressOnlyDigit(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
+            {
+                e.Handled = true;
+            }
+        }
 
         private void ClosingSolidWorksButton_Click(object sender, EventArgs e)
         {
-
+            _solidWorksApi.ClosingSolidWorks();
         }
 
         private void BondParametersGroupBox_Enter(object sender, EventArgs e)

@@ -10,9 +10,10 @@ namespace SolidworksChairPlugin.Model
     class ChairBuilder
     {
         private ChairParameters _chairParameters;
+
         private SolidWorksApi _solidWorksApi;
 
-        public ChairBuilder(SolidWorksApi solidWorksApi, ChairParameters chairParameters)
+        public ChairBuilder()
         {
 
         }
@@ -48,6 +49,9 @@ namespace SolidworksChairPlugin.Model
         {
             object solidWorks = solidWorksApi.IsThereSolidWorks();
             solidWorksApi.StartSolidWorks(solidWorks);
+            SeatParameters seatParameters = new SeatParameters(_chairParameters.SeatParameters.Width, 
+            _chairParameters.SeatParameters.Thickness, _chairParameters.SeatParameters.Length);
+            CreateSeat(seatParameters);
         }
 
     }

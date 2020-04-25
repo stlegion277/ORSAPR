@@ -135,6 +135,7 @@
             this.LegLengthTextBox.Name = "LegLengthTextBox";
             this.LegLengthTextBox.Size = new System.Drawing.Size(100, 22);
             this.LegLengthTextBox.TabIndex = 6;
+            this.LegLengthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
             // 
             // LegWidthTextBox
             // 
@@ -142,6 +143,7 @@
             this.LegWidthTextBox.Name = "LegWidthTextBox";
             this.LegWidthTextBox.Size = new System.Drawing.Size(100, 22);
             this.LegWidthTextBox.TabIndex = 7;
+            this.LegWidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
             // 
             // LegHeightTextBox
             // 
@@ -149,6 +151,7 @@
             this.LegHeightTextBox.Name = "LegHeightTextBox";
             this.LegHeightTextBox.Size = new System.Drawing.Size(100, 22);
             this.LegHeightTextBox.TabIndex = 8;
+            this.LegHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
             // 
             // SeatLengthTextBox
             // 
@@ -158,6 +161,7 @@
             this.SeatLengthTextBox.ShortcutsEnabled = false;
             this.SeatLengthTextBox.Size = new System.Drawing.Size(100, 22);
             this.SeatLengthTextBox.TabIndex = 9;
+            this.SeatLengthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
             // 
             // SeatWidthTextBox
             // 
@@ -165,6 +169,7 @@
             this.SeatWidthTextBox.Name = "SeatWidthTextBox";
             this.SeatWidthTextBox.Size = new System.Drawing.Size(100, 22);
             this.SeatWidthTextBox.TabIndex = 10;
+            this.SeatWidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
             // 
             // SeatThicknessTextBox
             // 
@@ -172,6 +177,7 @@
             this.SeatThicknessTextBox.Name = "SeatThicknessTextBox";
             this.SeatThicknessTextBox.Size = new System.Drawing.Size(100, 22);
             this.SeatThicknessTextBox.TabIndex = 11;
+            this.SeatThicknessTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
             // 
             // BondLengthTextBox
             // 
@@ -179,6 +185,7 @@
             this.BondLengthTextBox.Name = "BondLengthTextBox";
             this.BondLengthTextBox.Size = new System.Drawing.Size(100, 22);
             this.BondLengthTextBox.TabIndex = 12;
+            this.BondLengthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
             // 
             // BondWidthTextBox
             // 
@@ -186,6 +193,7 @@
             this.BondWidthTextBox.Name = "BondWidthTextBox";
             this.BondWidthTextBox.Size = new System.Drawing.Size(100, 22);
             this.BondWidthTextBox.TabIndex = 13;
+            this.BondWidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
             // 
             // BondHeightTextBox
             // 
@@ -193,6 +201,7 @@
             this.BondHeightTextBox.Name = "BondHeightTextBox";
             this.BondHeightTextBox.Size = new System.Drawing.Size(100, 22);
             this.BondHeightTextBox.TabIndex = 14;
+            this.BondHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
             // 
             // label7
             // 

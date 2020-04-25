@@ -1,6 +1,7 @@
 ﻿using SolidWorks.Interop.sldworks;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,16 @@ namespace SolidworksChairPlugin.Model
 
         private const string SelectionAxisType = "PLANE";
 
+
+        public void ClosingSolidWorks()
+        {
+            Process[] processes = Process.GetProcessesByName("SLDWORKS");
+            foreach(Process process in processes)
+            {
+                process.CloseMainWindow();
+                process.Kill();
+            }
+        }
         public object IsThereSolidWorks()
         {
             try
