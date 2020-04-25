@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace SolidworksChairPlugin.Model
 {
+    /// <summary>
+    /// Класс, хранящий параметры всего табурета
+    /// </summary>
     class ChairParameters
     {
+        #region Параметры
         /// <summary>
         /// Обьект класса связи между ножками
         /// </summary>
@@ -22,6 +26,7 @@ namespace SolidworksChairPlugin.Model
         /// Обьект класса ножек табурета
         /// </summary>
         private LegParameters _legParameters;
+        #endregion Параметры
 
         /// <summary>
         /// Конструктор класса параметров всего табурета
@@ -35,6 +40,7 @@ namespace SolidworksChairPlugin.Model
             BondParameters = bondParameters;
             SeatParameters = seatParameters;
         }
+        #region Свойства
         public BondParameters BondParameters
         {
             get
@@ -81,6 +87,9 @@ namespace SolidworksChairPlugin.Model
                 }
             }
         }
+        #endregion Свойства
+
+        #region Валидация
         /// <summary>
         /// Метод проверки параметров табурета
         /// </summary>
@@ -122,5 +131,6 @@ namespace SolidworksChairPlugin.Model
                 throw new ArgumentOutOfRangeException();
             }
         }
+        #endregion Валидация
     }
 }

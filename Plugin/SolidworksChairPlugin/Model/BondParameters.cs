@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace SolidworksChairPlugin.Model
 {
+    /// <summary>
+    /// Класс, хранящий параметры связей между ножками табурета
+    /// </summary>
     class BondParameters
     {
+        #region Параметры 
         /// <summary>
         /// Высота(толщина) связи между ножками табурета 
         /// </summary>
@@ -32,7 +36,7 @@ namespace SolidworksChairPlugin.Model
         /// Обьект класса, который нужен для проверки зависимых параметров
         /// </summary>
         private SeatParameters _seatParameters;
-
+        #endregion Параметры
 
         /// <summary>
         /// Конструктор класса параметров связей между ножек табурета
@@ -51,6 +55,7 @@ namespace SolidworksChairPlugin.Model
             SeatParameters = seatParameters;
         }
 
+        #region Свойства
         public SeatParameters SeatParameters
         {
             get
@@ -136,6 +141,7 @@ namespace SolidworksChairPlugin.Model
                 _width = value;
             }
         }
+        #endregion Свойства
     }
 
 }

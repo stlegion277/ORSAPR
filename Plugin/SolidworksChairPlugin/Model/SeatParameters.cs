@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace SolidworksChairPlugin.Model
 {
+    /// <summary>
+    /// Класс хранящий параметры сидушки табурета
+    /// </summary>
     class SeatParameters
     {
+        #region Параметры
         /// <summary>
         /// Ширина сидушки
         /// </summary>
@@ -22,6 +26,7 @@ namespace SolidworksChairPlugin.Model
         /// Длина сидушки
         /// </summary>
         private int _length;
+        #endregion Параметры
 
         /// <summary>
         /// Конструктор класса параметров сидушки
@@ -35,6 +40,7 @@ namespace SolidworksChairPlugin.Model
             Thickness = thickness;
             Length = length;
         }
+        #region Свойства
         public int Width
         {
             get
@@ -82,5 +88,6 @@ namespace SolidworksChairPlugin.Model
                 _length = value;
             }
         }
+        #endregion Свойства
     }
 }

@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace SolidworksChairPlugin.Model
 {
+    /// <summary>
+    /// Класс хранящий параметры ножек табурета
+    /// </summary>
     class LegParameters
     {
+        #region Параметры
         /// <summary>
         /// Высота ножки
         /// </summary>
@@ -23,6 +27,9 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         private int _length;
 
+        #endregion Параметры
+
+        #region Свойства
         public int Height
         {
             get
@@ -70,6 +77,7 @@ namespace SolidworksChairPlugin.Model
                 _length = value;
             }
         }
+        #endregion Свойства
 
         /// <summary>
         /// Конструктор класса параметров ножек табурета
