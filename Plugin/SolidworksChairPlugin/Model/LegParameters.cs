@@ -79,6 +79,10 @@ namespace SolidworksChairPlugin.Model
         }
         #endregion Свойства
 
+        public LegParameters()
+        {
+
+        }
         /// <summary>
         /// Конструктор класса параметров ножек табурета
         /// </summary>

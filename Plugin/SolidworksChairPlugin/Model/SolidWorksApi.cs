@@ -20,6 +20,10 @@ namespace SolidworksChairPlugin.Model
 
         private const string SelectionAxisType = "PLANE";
 
+        private const string SelectionByPointsType = "FACE";
+
+        private const string SketchName = "Эскиз";
+
 
         public void ClosingSolidWorks()
         {
@@ -52,7 +56,12 @@ namespace SolidworksChairPlugin.Model
 
         public void DrawingRectangle(int xaxis, int yaxis, int center = 0)
         {
-            _model.SketchManager.CreateCenterRectangle(center, 0, 0, xaxis, yaxis, 0);
+            _model.SketchManager.CreateCenterRectangle(center, 0, 0, xaxis/2, yaxis/2, 0);
+        }
+
+        public void DrawingRectangleForLegs(int xaxis, int yaxis, int center = 0)
+        {
+            _model.SketchManager.CreateCornerRectangle(center, 0, 0, xaxis, yaxis, 0);
         }
 
         public void CreateSolidWorksFile()
@@ -82,6 +91,11 @@ namespace SolidworksChairPlugin.Model
             _model.ClearSelection2(true);
         }
 
+        public void CoordinatesSelection(int Xaxis, int yAxis, int zAxis)
+        {
+            _model.Extension.SelectByID2(string.Empty, SelectionByPointsType, 40, 40, 40, false, 40, null, 0);
+        }
+
         public void FigureCutBySketch(int height, bool upDirection = true)
         {
             _model.FeatureManager.FeatureCut4(true, false, upDirection, 0, 0, height, 0.01, false, false, false, false,
@@ -98,5 +112,7 @@ namespace SolidworksChairPlugin.Model
         {
             _model.Extension.SelectByRay(0, height, 0, 1, height, 1, 1, 2, false, 0, 0);
         }
+
+       // public void MirrorPart(int)
     }
 }

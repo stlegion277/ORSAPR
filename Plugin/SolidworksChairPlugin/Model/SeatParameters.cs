@@ -28,6 +28,10 @@ namespace SolidworksChairPlugin.Model
         private int _length;
         #endregion Параметры
 
+        public SeatParameters()
+        {
+
+        }
         /// <summary>
         /// Конструктор класса параметров сидушки
         /// </summary>

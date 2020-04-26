@@ -37,7 +37,10 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         private SeatParameters _seatParameters;
         #endregion Параметры
-
+        public BondParameters()
+        {
+                
+        }
         /// <summary>
         /// Конструктор класса параметров связей между ножек табурета
         /// </summary>
@@ -68,6 +71,7 @@ namespace SolidworksChairPlugin.Model
                 {
                     throw new ArgumentNullException();
                 }
+                _seatParameters = value;
             }
         }
         public LegParameters LegParameters
@@ -116,10 +120,11 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-                if (value != (SeatParameters.Length - 5 - (LegParameters.Width * 2)))
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
+               // if (value != (SeatParameters.Length - 50 - (LegParameters.Width * 2)))
+                //{
+                //    throw new ArgumentOutOfRangeException();
+                //}
+                _length = value;
             }
         }
 
@@ -134,10 +139,10 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-                if (value < 20 || value > LegParameters.Width)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
+                //if (value < 20 || value > LegParameters.Width)
+                //{
+                //    throw new ArgumentOutOfRangeException();
+                //}
                 _width = value;
             }
         }

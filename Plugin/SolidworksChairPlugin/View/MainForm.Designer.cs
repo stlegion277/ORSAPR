@@ -70,6 +70,7 @@
             this.BondLengthToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.BondWidthToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.BondHeightToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.TestValuesButton = new System.Windows.Forms.Button();
             this.LegParametersGroupBox.SuspendLayout();
             this.SeatParametersGroupBox.SuspendLayout();
             this.BondParametersGroupBox.SuspendLayout();
@@ -386,12 +387,23 @@
             this.label16.TabIndex = 21;
             this.label16.Text = "мм";
             // 
+            // TestValuesButton
+            // 
+            this.TestValuesButton.Location = new System.Drawing.Point(12, 451);
+            this.TestValuesButton.Name = "TestValuesButton";
+            this.TestValuesButton.Size = new System.Drawing.Size(233, 35);
+            this.TestValuesButton.TabIndex = 26;
+            this.TestValuesButton.Text = "Тест";
+            this.TestValuesButton.UseVisualStyleBackColor = true;
+            this.TestValuesButton.Click += new System.EventHandler(this.TestValuesButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(259, 462);
+            this.ClientSize = new System.Drawing.Size(259, 498);
+            this.Controls.Add(this.TestValuesButton);
             this.Controls.Add(this.BondParametersGroupBox);
             this.Controls.Add(this.SeatParametersGroupBox);
             this.Controls.Add(this.LegParametersGroupBox);
@@ -453,6 +465,7 @@
         private System.Windows.Forms.ToolTip BondLengthToolTip;
         private System.Windows.Forms.ToolTip BondWidthToolTip;
         private System.Windows.Forms.ToolTip BondHeightToolTip;
+        private System.Windows.Forms.Button TestValuesButton;
     }
 }
 

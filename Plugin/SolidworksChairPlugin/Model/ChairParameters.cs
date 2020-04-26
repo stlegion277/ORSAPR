@@ -83,8 +83,9 @@ namespace SolidworksChairPlugin.Model
             {
                 if (value == null)
                 {
-                    _legParameters = value;
+                    throw new ArgumentNullException();
                 }
+                _legParameters = value;
             }
         }
         #endregion Свойства
@@ -130,7 +131,27 @@ namespace SolidworksChairPlugin.Model
             {
                 throw new ArgumentOutOfRangeException();
             }
+            if (BondParameters.Length != (SeatParameters.Length - 5 - (LegParameters.Width * 2)))
+            {
+                throw new ArgumentOutOfRangeException();
+            }
         }
         #endregion Валидация
+
+        public ChairParameters(bool isDefault = false)
+        {
+            if (isDefault)
+            {
+                SeatParameters.Length = 320;
+                SeatParameters.Width = 320;
+                SeatParameters.Thickness = 40;
+                LegParameters.Height = 500;
+                LegParameters.Length = 40;
+                LegParameters.Width = 40;
+                BondParameters.Height = 40;
+                BondParameters.Length = 170;
+                BondParameters.Width = 30;
+            }
+        }
     }
 }
