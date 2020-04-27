@@ -16,6 +16,8 @@ namespace SolidworksChairPlugin.Model
 
         private const string TopAxisName = "Сверху";
 
+        private const string SideAxisName = "Слева";
+
         private const string NameView = "Изометрия";
 
         private const string SelectionAxisType = "PLANE";
@@ -23,7 +25,6 @@ namespace SolidworksChairPlugin.Model
         private const string SelectionByPointsType = "FACE";
 
         private const string SketchName = "Эскиз1";
-
 
         public void ClosingSolidWorks()
         {
@@ -68,6 +69,11 @@ namespace SolidworksChairPlugin.Model
 
         }
 
+        public void DrawingRectangleForBonds(int xaxis, int yaxis)
+        {
+            _model.SketchManager.CreateCornerRectangle(-130, -120, 0, -150, -140, 0);
+        }
+
         public void CreateSolidWorksFile()
         {
             _solidWorks.NewPart();
@@ -77,6 +83,11 @@ namespace SolidworksChairPlugin.Model
         public void LayerSelection()
         {
             _model.Extension.SelectByID2(TopAxisName, SelectionAxisType, 0, 0, 0, false, 0, null, 0);
+        }
+
+        public void LayerSelectionForBonds()
+        {
+            _model.Extension.SelectByID2(SideAxisName, SelectionAxisType, 0, 0, 0, false, 0, null, 0);
         }
 
         public void SketchSelection()
