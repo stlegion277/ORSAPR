@@ -25,28 +25,20 @@ namespace SolidworksChairPlugin.Model
 
         private void CreateSeat(SeatParameters seatParameters)
         {
-           // _solidWorksApi.CreateSolidWorksFile();
             _solidWorksApi.LayerSelection();
-            _solidWorksApi.SketchSelection();
             _solidWorksApi.DrawingRectangle(seatParameters.Width, seatParameters.Length);
             _solidWorksApi.FigureElongationBySketch(seatParameters.Thickness);
-           // _solidWorksApi.SelectLayerByRay(seatParameters.Thickness);
-            _solidWorksApi.SketchSelection();
             _solidWorksApi.FigureCutBySketch(seatParameters.Thickness, false);
             _solidWorksApi.RemoveAllocations();
 
         }
 
-        private void CreateLeg(LegParameters legParameters)
+        private void CreateLeg(LegParameters legParameters, SeatParameters seatParameters)
         {
-           // _solidWorksApi.CreateSolidWorksFile();
-            _solidWorksApi.LayerSelection();
-            _solidWorksApi.SketchSelection();
-            _solidWorksApi.CoordinatesSelection(-400, -440, 440);
-            _solidWorksApi.DrawingRectangleForLegs(legParameters.Width, legParameters.Length);
+            _solidWorksApi.CoordinatesSelection(200, 200, 200);
+            _solidWorksApi.LayerSelection(); 
+            _solidWorksApi.DrawingRectangleForLegs(seatParameters.Width, legParameters.Width);
             _solidWorksApi.FigureElongationBySketch(legParameters.Height);
-            // _solidWorksApi.SelectLayerByRay(seatParameters.Thickness);
-            _solidWorksApi.SketchSelection();
             _solidWorksApi.FigureCutBySketch(legParameters.Height, false);
             _solidWorksApi.RemoveAllocations();
         }
@@ -62,8 +54,8 @@ namespace SolidworksChairPlugin.Model
             solidWorksApi.StartSolidWorks(solidWorks);
             _solidWorksApi = solidWorksApi;
             solidWorksApi.CreateSolidWorksFile();
-            CreateLeg(chairParameters.LegParameters);
             CreateSeat(chairParameters.SeatParameters);
+            CreateLeg(chairParameters.LegParameters, chairParameters.SeatParameters);
         }
 
     }

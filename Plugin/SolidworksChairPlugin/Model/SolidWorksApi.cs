@@ -22,7 +22,7 @@ namespace SolidworksChairPlugin.Model
 
         private const string SelectionByPointsType = "FACE";
 
-        private const string SketchName = "Эскиз";
+        private const string SketchName = "Эскиз1";
 
 
         public void ClosingSolidWorks()
@@ -59,9 +59,12 @@ namespace SolidworksChairPlugin.Model
             _model.SketchManager.CreateCenterRectangle(center, 0, 0, xaxis/2, yaxis/2, 0);
         }
 
-        public void DrawingRectangleForLegs(int xaxis, int yaxis, int center = 0)
+        public void DrawingRectangleForLegs(int xaxis, int yaxis )
         {
-            _model.SketchManager.CreateCornerRectangle(center, 0, 0, xaxis, yaxis, 0);
+            _model.SketchManager.CreateCornerRectangle(xaxis/2, xaxis/2, 0, (xaxis/2)-yaxis, (xaxis/2)-yaxis, 0);
+            _model.SketchManager.CreateCornerRectangle(0 - xaxis / 2, 0 - xaxis / 2, 0,  yaxis-(xaxis / 2) , yaxis-(xaxis / 2), 0);
+            _model.SketchManager.CreateCornerRectangle(xaxis / 2, yaxis - xaxis / 2, 0, xaxis/2 - yaxis, 0 - (xaxis / 2), 0);
+
         }
 
         public void CreateSolidWorksFile()
@@ -80,6 +83,8 @@ namespace SolidworksChairPlugin.Model
             _model.SketchManager.InsertSketch(true);
         }
 
+
+
         public void SetIsometricView()
         {
             _model.ShowNamedView2(NameView, -1);
@@ -93,10 +98,10 @@ namespace SolidworksChairPlugin.Model
 
         public void CoordinatesSelection(int Xaxis, int yAxis, int zAxis)
         {
-            _model.Extension.SelectByID2(string.Empty, SelectionByPointsType, 40, 40, 40, false, 40, null, 0);
+            _model.Extension.SelectByID2(SketchName, SelectionByPointsType, Xaxis, yAxis, zAxis, true, 0, null, 0);
         }
 
-        public void FigureCutBySketch(int height, bool upDirection = true)
+        public void FigureCutBySketch(int height, bool upDirection = false)
         {
             _model.FeatureManager.FeatureCut4(true, false, upDirection, 0, 0, height, 0.01, false, false, false, false,
                1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, false, true, true, true, true, false, 0, 0, false, false);
@@ -104,7 +109,7 @@ namespace SolidworksChairPlugin.Model
 
         public void FigureElongationBySketch(int height)
         {
-            _model.FeatureManager.FeatureExtrusion2(true, false, false, 0, 0, height, 0.01, false, false, false, false,
+            _model.FeatureManager.FeatureExtrusion2(true, false, true, 0, 0, height, 0.01, false, false, false, false,
                1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, true, 0, 0, false);
         }
 
