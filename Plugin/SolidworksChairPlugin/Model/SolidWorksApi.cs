@@ -64,6 +64,7 @@ namespace SolidworksChairPlugin.Model
             _model.SketchManager.CreateCornerRectangle(xaxis/2, xaxis/2, 0, (xaxis/2)-yaxis, (xaxis/2)-yaxis, 0);
             _model.SketchManager.CreateCornerRectangle(0 - xaxis / 2, 0 - xaxis / 2, 0,  yaxis-(xaxis / 2) , yaxis-(xaxis / 2), 0);
             _model.SketchManager.CreateCornerRectangle(xaxis / 2, yaxis - xaxis / 2, 0, xaxis/2 - yaxis, 0 - (xaxis / 2), 0);
+            _model.SketchManager.CreateCornerRectangle(0 - xaxis / 2, xaxis / 2 - yaxis, 0, yaxis - xaxis/2, xaxis / 2, 0);
 
         }
 
