@@ -16,7 +16,7 @@ namespace SolidworksChairPlugin.Model
 
         private const string TopAxisName = "Сверху";
 
-        private const string SideAxisName = "Слева";
+        private const string SideAxisName = "Спереди";
 
         private const string NameView = "Изометрия";
 
@@ -71,7 +71,11 @@ namespace SolidworksChairPlugin.Model
 
         public void DrawingRectangleForBonds(int xaxis, int yaxis)
         {
-            _model.SketchManager.CreateCornerRectangle(-130, -120, 0, -150, -140, 0);
+            
+            _model.SketchManager.CreateCornerRectangle(-130, -140, 100, -150, -160, 100);
+            _model.SketchManager.CreateCornerRectangle(130, -140, 0, 150, -160, 100);
+            _model.SketchManager.CreateCornerRectangle(180, -35, 150, 200, -45, -45);
+
         }
 
         public void CreateSolidWorksFile()
@@ -82,20 +86,13 @@ namespace SolidworksChairPlugin.Model
 
         public void LayerSelection()
         {
-            _model.Extension.SelectByID2(TopAxisName, SelectionAxisType, 0, 0, 0, false, 0, null, 0);
-        }
-
-        public void LayerSelectionForBonds()
-        {
-            _model.Extension.SelectByID2(SideAxisName, SelectionAxisType, 0, 0, 0, false, 0, null, 0);
+            _model.Extension.SelectByID2(TopAxisName, SelectionAxisType, 0, 0, 100, false, 0, null, 0);
         }
 
         public void SketchSelection()
         {
             _model.SketchManager.InsertSketch(true);
         }
-
-
 
         public void SetIsometricView()
         {
@@ -106,11 +103,6 @@ namespace SolidworksChairPlugin.Model
         public void RemoveAllocations()
         {
             _model.ClearSelection2(true);
-        }
-
-        public void CoordinatesSelection(int Xaxis, int yAxis, int zAxis)
-        {
-            _model.Extension.SelectByID2(SketchName, SelectionByPointsType, Xaxis, yAxis, zAxis, true, 0, null, 0);
         }
 
         public void FigureCutBySketch(int height, bool upDirection = false)
@@ -125,11 +117,16 @@ namespace SolidworksChairPlugin.Model
                1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, true, 0, 0, false);
         }
 
+        public void FigureElongationBySketchForBonds(int height)
+        {
+            _model.FeatureManager.FeatureExtrusion2(false, false, true, -1, -1, height, 0.01, false, false, false, false,
+               1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, false, -100, -100, true);
+        }
+
+
         public void SelectLayerByRay(int height)
         {
             _model.Extension.SelectByRay(0, height, 0, 1, height, 1, 1, 2, false, 0, 0);
         }
-
-       // public void MirrorPart(int)
     }
 }
