@@ -18,9 +18,9 @@ namespace SolidworksChairPlugin.Model
 
         }
 
-        private void CreateBond(BondParameters bondParameters, LegParameters legParameters)
+        private void CreateBond(BondParameters bondParameters, SeatParameters seatParameters)
         {
-            _solidWorksApi.DrawingRectangleForBonds(bondParameters.Width, bondParameters.Height);
+            _solidWorksApi.DrawingRectangleForBonds(seatParameters.Width, bondParameters.Width);
             _solidWorksApi.FigureElongationBySketchForBonds(bondParameters.Length);
             //_solidWorksApi.FigureCutBySketch(bondParameters.Length, false);
             _solidWorksApi.RemoveAllocations();
@@ -58,7 +58,7 @@ namespace SolidworksChairPlugin.Model
             solidWorksApi.CreateSolidWorksFile();
             CreateSeat(chairParameters.SeatParameters);
             CreateLeg(chairParameters.LegParameters, chairParameters.SeatParameters);
-            CreateBond(chairParameters.BondParameters, chairParameters.LegParameters);
+            CreateBond(chairParameters.BondParameters, chairParameters.SeatParameters);
         }
 
     }

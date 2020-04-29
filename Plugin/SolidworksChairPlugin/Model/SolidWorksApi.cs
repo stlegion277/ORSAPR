@@ -71,10 +71,9 @@ namespace SolidworksChairPlugin.Model
 
         public void DrawingRectangleForBonds(int xaxis, int yaxis)
         {
-            
-            _model.SketchManager.CreateCornerRectangle(-130, -140, 100, -150, -160, 100);
-            _model.SketchManager.CreateCornerRectangle(130, -140, 0, 150, -160, 100);
-            _model.SketchManager.CreateCornerRectangle(180, -35, 150, 200, -45, -45);
+            _model.SketchManager.CreateCornerRectangle((0 - (xaxis/2)) + yaxis, -140, 0, 0 - xaxis/2, -160, 0);
+            _model.SketchManager.CreateCornerRectangle(xaxis/2 - yaxis, -140, 0, xaxis /2, -160, 0);
+           // _model.SketchManager.CreateCornerRectangle(180, -35, 150, 200, -45, -45);
 
         }
 
