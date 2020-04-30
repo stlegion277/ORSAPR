@@ -37,26 +37,14 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         private SeatParameters _seatParameters;
         #endregion Параметры
+
+
         public BondParameters()
         {
                 
         }
-        /// <summary>
-        /// Конструктор класса параметров связей между ножек табурета
-        /// </summary>
-        /// <param name="height"></param>
-        /// <param name="width"></param>
-        /// <param name="length"></param>
-        /// <param name="legParameters">нужен здесь для проверки зависимых параметров</param>
-        /// <param name="seatParameters">нужен здесь для проверки зависимых параметров</param>
-        public BondParameters(int height, int width, int length, LegParameters legParameters, SeatParameters seatParameters)
-        {
-            Height = height;
-            Width = width;
-            Length = length;
-            LegParameters = legParameters;
-            SeatParameters = seatParameters;
-        }
+       
+
 
         #region Свойства
         public SeatParameters SeatParameters
@@ -101,7 +89,7 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-                if (value < 30 || value > 50)
+                if (value != _width)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -120,10 +108,10 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-               // if (value != (SeatParameters.Length - 50 - (LegParameters.Width * 2)))
-                //{
-                //    throw new ArgumentOutOfRangeException();
-                //}
+               if (value != (SeatParameters.Length - (LegParameters.Width * 2)))
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
                 _length = value;
             }
         }
@@ -139,10 +127,10 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-                //if (value < 20 || value > LegParameters.Width)
-                //{
-                //    throw new ArgumentOutOfRangeException();
-                //}
+                if (value < LegParameters.Width || value > LegParameters.Width)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
                 _width = value;
             }
         }

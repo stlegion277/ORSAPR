@@ -32,18 +32,8 @@ namespace SolidworksChairPlugin.Model
         {
 
         }
-        /// <summary>
-        /// Конструктор класса параметров сидушки
-        /// </summary>
-        /// <param name="width"></param>
-        /// <param name="thickness"></param>
-        /// <param name="length"></param>
-        public SeatParameters(int width, int thickness, int length)
-        {
-            Width = width;
-            Thickness = thickness;
-            Length = length;
-        }
+     
+
         #region Свойства
         public int Width
         {

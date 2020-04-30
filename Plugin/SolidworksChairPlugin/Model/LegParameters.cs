@@ -79,21 +79,10 @@ namespace SolidworksChairPlugin.Model
         }
         #endregion Свойства
 
+
         public LegParameters()
         {
 
-        }
-        /// <summary>
-        /// Конструктор класса параметров ножек табурета
-        /// </summary>
-        /// <param name="height"></param>
-        /// <param name="width"></param>
-        /// <param name="length"></param>
-        public LegParameters(int height, int width, int length)
-        {
-            Height = height;
-            Width = width;
-            Length = length;
         }
         
     }
