@@ -41,9 +41,6 @@ namespace SolidworksChairPlugin
         {
             ChairParameters chairParameters = new ChairParameters(new LegParameters(), 
                 new SeatParameters(), new BondParameters());
-            try
-            {
-                
                 chairParameters.SeatParameters.Length = int.Parse(SeatLengthTextBox.Text);
                 chairParameters.SeatParameters.Width = int.Parse(SeatLengthTextBox.Text);
                 chairParameters.SeatParameters.Thickness = int.Parse(SeatThicknessTextBox.Text);
@@ -56,22 +53,6 @@ namespace SolidworksChairPlugin
                 chairParameters.BondParameters.Width = int.Parse(BondWidthTextBox.Text);
                 chairParameters.BondParameters.Height = int.Parse(BondHeightTextBox.Text);
                 return chairParameters;
-                
-            }
-            catch(Exception ex)
-            {
-                if (ex is ArgumentOutOfRangeException)
-                {
-                    MessageBox.Show("Для того чтобы смоделировать табурет, необходимо корректно заполнить все поля", "kek", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
-                }
-                else
-                {
-                    throw new Exception("Для того чтобы смоделировать табурет, необходимо корректно заполнить все поля");
-                }
-                return GetValuesFromTextBox();
-            }
         }
 
         private void ClosingSolidWorksButton_Click(object sender, EventArgs e)
@@ -79,16 +60,25 @@ namespace SolidworksChairPlugin
             _solidWorksApi.ClosingSolidWorks();
         }
 
-        private void BondParametersGroupBox_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void BuildStartButton_Click(object sender, EventArgs e)
         {
-            _chairParameters = GetValuesFromTextBox();
-           // _chairParameters.ValidateParameters();
-            _chairBuilder.ChairBuilding(_chairParameters, _solidWorksApi);
+            bool isValuesRight = true;
+            try
+            {
+                isValuesRight = true;
+                _chairParameters = GetValuesFromTextBox();
+            }
+            catch
+            {
+                isValuesRight = false;
+                MessageBox.Show("Чтобы смоделировать табурет, необходимо ввести корректные данные", 
+                    "OutOfRange", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            if (isValuesRight)
+            {
+                _chairBuilder.ChairBuilding(_chairParameters, _solidWorksApi);
+            }
            
         }
 
@@ -109,7 +99,7 @@ namespace SolidworksChairPlugin
         #region ToolTipActions
         private void SeatLengthTextBox_Enter(object sender, EventArgs e)
         {
-            SeatLengthToolTIp.Show("Длина и ширина табурета должны быть равны", SeatLengthTextBox);
+            SeatLengthToolTIp.Show("Длина и ширина сидушки должны быть равны", SeatLengthTextBox);
         }
 
         private void SeatLengthTextBox_Leave(object sender, EventArgs e)
@@ -119,7 +109,7 @@ namespace SolidworksChairPlugin
 
         private void SeatWidthTextBox_Enter(object sender, EventArgs e)
         {
-            SeatWidthToolTIp.Show("Длина и ширина табурета должны быть равны", SeatWidthTextBox);
+            SeatWidthToolTIp.Show("Длина и ширина сидушки должны быть равны", SeatWidthTextBox);
         }
 
         private void SeatWidthTextBox_Leave(object sender, EventArgs e)
@@ -139,7 +129,7 @@ namespace SolidworksChairPlugin
 
         private void LegLengthTextBox_Enter(object sender, EventArgs e)
         {
-            LegLengthToolTIp.Show("Длина и ширина ножки должны быть равны", LegLengthTextBox);
+            LegLengthToolTIp.Show("Длина ножки не может быть меньше 40-а и больше 100-а", LegLengthTextBox);
         }
 
         private void LegLengthTextBox_Leave(object sender, EventArgs e)
@@ -169,7 +159,8 @@ namespace SolidworksChairPlugin
 
         private void BondLengthTextBox_Enter(object sender, EventArgs e)
         {
-            BondLengthToolTip.Show("Длина связи не может быть больше или меньше расстояния между ножек табурета", 
+            BondLengthToolTip.Show("Длина связи должна быть равна расстоянию между ножек табурета, " +
+                "Формула: Длина связи = Ширина сиденья - ширина ножки * 2", 
                 BondLengthTextBox);
         }
 
@@ -180,7 +171,8 @@ namespace SolidworksChairPlugin
 
         private void BondWidthTextBox_Enter(object sender, EventArgs e)
         {
-            BondWidthToolTip.Show("Ширина связи должна быть равна высоте связи между ножек табурета",
+            BondWidthToolTip.Show("Ширина связи должна быть равна высоте " +
+                "связи и не может быть шире самой ножки",
                    BondWidthTextBox);
 
         }
@@ -192,7 +184,8 @@ namespace SolidworksChairPlugin
 
         private void BondHeightTextBox_Enter(object sender, EventArgs e)
         {
-            BondHeightToolTip.Show("Высота связи должна быть равна ширине связи между ножек табурета",
+            BondHeightToolTip.Show("Высота связи должна быть равна ширине связи и" +
+                "не может быть выше ножки табурета",
                    BondHeightTextBox);
         }
 

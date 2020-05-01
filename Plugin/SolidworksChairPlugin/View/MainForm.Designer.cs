@@ -376,7 +376,6 @@
             this.BondParametersGroupBox.TabIndex = 25;
             this.BondParametersGroupBox.TabStop = false;
             this.BondParametersGroupBox.Text = "Связь";
-            this.BondParametersGroupBox.Enter += new System.EventHandler(this.BondParametersGroupBox_Enter);
             // 
             // label18
             // 

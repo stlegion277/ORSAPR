@@ -127,7 +127,7 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-                if (value < LegParameters.Width || value > LegParameters.Width)
+                if (value != LegParameters.Width)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
