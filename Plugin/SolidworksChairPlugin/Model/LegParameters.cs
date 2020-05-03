@@ -9,7 +9,7 @@ namespace SolidworksChairPlugin.Model
     /// <summary>
     /// Класс хранящий параметры ножек табурета
     /// </summary>
-    class LegParameters
+   public class LegParameters
     {
         #region Параметры
         /// <summary>
@@ -58,7 +58,7 @@ namespace SolidworksChairPlugin.Model
                 {
                     throw new ArgumentOutOfRangeException();
                 }
-                _width = value;
+                _width = _length;
             }
         }
 

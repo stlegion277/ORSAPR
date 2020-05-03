@@ -9,7 +9,7 @@ namespace SolidworksChairPlugin.Model
     /// <summary>
     /// Класс, хранящий параметры связей между ножками табурета
     /// </summary>
-    class BondParameters
+    public class BondParameters
     {
         #region Параметры 
         /// <summary>
@@ -127,7 +127,7 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-                if (value != LegParameters.Width)
+                if (value != _legParameters.Width)
                 {
                     throw new ArgumentOutOfRangeException();
                 }

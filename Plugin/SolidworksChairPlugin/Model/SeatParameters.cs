@@ -9,7 +9,7 @@ namespace SolidworksChairPlugin.Model
     /// <summary>
     /// Класс хранящий параметры сидушки табурета
     /// </summary>
-    class SeatParameters
+   public class SeatParameters
     {
         #region Параметры
         /// <summary>
