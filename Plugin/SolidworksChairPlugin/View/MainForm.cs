@@ -19,7 +19,7 @@ namespace SolidworksChairPlugin
             InitializeComponent();
         }
 
-
+        #region Параметры
         private ChairParameters _chairParameters;
 
 
@@ -27,8 +27,14 @@ namespace SolidworksChairPlugin
 
 
         private ChairBuilder _chairBuilder = new ChairBuilder();
+        #endregion Параметры
 
-
+        #region Методы выполняющиеся через кнопки, текстбоксы
+        /// <summary>
+        /// Метод блокирующий ввод символов и всякого ненужного
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void KeyPressOnlyDigit(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
@@ -37,6 +43,10 @@ namespace SolidworksChairPlugin
             }
         }
 
+        /// <summary>
+        /// Здесь мы берем значения из текстбоксов
+        /// </summary>
+        /// <returns></returns>
         private ChairParameters GetValuesFromTextBox()
         {
             ChairParameters chairParameters = new ChairParameters(new LegParameters(), 
@@ -55,12 +65,21 @@ namespace SolidworksChairPlugin
                 return chairParameters;
         }
 
+        /// <summary>
+        /// Кнопочка закрытия solidworks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClosingSolidWorksButton_Click(object sender, EventArgs e)
         {
             _solidWorksApi.ClosingSolidWorks();
         }
 
-
+        /// <summary>
+        /// Кнопочка построения моделирования
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BuildStartButton_Click(object sender, EventArgs e)
         {
             bool isValuesRight = true;
@@ -82,6 +101,11 @@ namespace SolidworksChairPlugin
            
         }
 
+        /// <summary>
+        /// Значения по умолчанию
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
          private void TestValuesButton_Click(object sender, EventArgs e)
         {
             SeatLengthTextBox.Text = "320";
@@ -96,6 +120,12 @@ namespace SolidworksChairPlugin
 
         }
 
+        #endregion Методы выполняющиеся через кнопки, текстбоксы
+        /// <summary>
+        /// Тултипы нужны для того чтобы высвечивались подсказки в тексбоксах
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         #region ToolTipActions
         private void SeatLengthTextBox_Enter(object sender, EventArgs e)
         {

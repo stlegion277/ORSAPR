@@ -7,6 +7,9 @@ using SolidWorks.Interop.sldworks;
 
 namespace SolidworksChairPlugin.Model
 {
+    /// <summary>
+    /// Класс строящий табурет посредством методов с solidworksAPI
+    /// </summary>
     class ChairBuilder
     {
         private ChairParameters _chairParameters;
@@ -18,6 +21,13 @@ namespace SolidworksChairPlugin.Model
 
         }
 
+        #region Методы построения табурета
+        /// <summary>
+        /// Метод который создает связи
+        /// </summary>
+        /// <param name="bondParameters"></param>
+        /// <param name="seatParameters"></param>
+        /// <param name="legParameters"></param>
         private void CreateBond(BondParameters bondParameters, SeatParameters seatParameters, LegParameters legParameters)
         {
             _solidWorksApi.LayerSelectionForBonds();
@@ -27,10 +37,13 @@ namespace SolidworksChairPlugin.Model
             _solidWorksApi.SelectLayerByRay(legParameters.Height);
             _solidWorksApi.DrawingRectangleForBondsYOZ(seatParameters.Width, bondParameters.Width);
             _solidWorksApi.FigureElongationBySketchForBonds(bondParameters.Length);
-            //_solidWorksApi.FigureCutBySketch(bondParameters.Length, false); 
             _solidWorksApi.RemoveAllocations();
         }
 
+        /// <summary>
+        /// Метод который создает сиденье
+        /// </summary>
+        /// <param name="seatParameters"></param>
         private void CreateSeat(SeatParameters seatParameters)
         {
             _solidWorksApi.LayerSelection();
@@ -42,6 +55,11 @@ namespace SolidworksChairPlugin.Model
 
         }
 
+        /// <summary>
+        /// Метод который создает ножки
+        /// </summary>
+        /// <param name="legParameters"></param>
+        /// <param name="seatParameters"></param>
         private void CreateLeg(LegParameters legParameters, SeatParameters seatParameters)
         {
             _solidWorksApi.LayerSelection();
@@ -50,11 +68,6 @@ namespace SolidworksChairPlugin.Model
             _solidWorksApi.FigureElongationBySketch(legParameters.Height);
             _solidWorksApi.FigureCutBySketch(legParameters.Height, false);
             _solidWorksApi.RemoveAllocations();
-        }
-
-        public void CreateChair(ChairParameters chairParameters)
-        {
-
         }
 
         public void ChairBuilding(ChairParameters chairParameters, SolidWorksApi solidWorksApi)
@@ -67,6 +80,7 @@ namespace SolidworksChairPlugin.Model
             CreateLeg(chairParameters.LegParameters, chairParameters.SeatParameters);
             CreateBond(chairParameters.BondParameters, chairParameters.SeatParameters, chairParameters.LegParameters);
         }
+        #endregion Методы построения табурета
 
     }
 }
