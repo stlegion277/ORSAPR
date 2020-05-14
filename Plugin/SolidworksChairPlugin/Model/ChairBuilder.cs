@@ -28,7 +28,8 @@ namespace SolidworksChairPlugin.Model
         /// <param name="bondParameters"></param>
         /// <param name="seatParameters"></param>
         /// <param name="legParameters"></param>
-        private void CreateBond(BondParameters bondParameters, SeatParameters seatParameters, LegParameters legParameters)
+        private void CreateBond(BondParameters bondParameters, SeatParameters 
+            seatParameters, LegParameters legParameters)
         {
             _solidWorksApi.LayerSelectionForBonds();
             _solidWorksApi.SketchSelection();
@@ -36,6 +37,20 @@ namespace SolidworksChairPlugin.Model
             _solidWorksApi.FigureElongationBySketchForBonds(bondParameters.Length);
             _solidWorksApi.SelectLayerByRay(legParameters.Height);
             _solidWorksApi.DrawingRectangleForBondsYOZ(seatParameters.Width, bondParameters.Width);
+            _solidWorksApi.FigureElongationBySketchForBonds(bondParameters.Length);
+            _solidWorksApi.RemoveAllocations();
+        }
+
+        private void CreateChairBack(SeatParameters seatParameters, LegParameters 
+            legParameters, BondParameters bondParameters)
+        {
+            _solidWorksApi.LayerSelection();
+            _solidWorksApi.SketchSelection();
+            _solidWorksApi.CreateChairBack(seatParameters.Width, legParameters.Width);
+            _solidWorksApi.FigureElongationBySketchForChairBack(legParameters.Height-100);
+            _solidWorksApi.LayerSelectionForBonds();
+            _solidWorksApi.SelectLayerByRay(legParameters.Height);
+            _solidWorksApi.DrawingRectangleForBondsOfChairBack(seatParameters.Width,bondParameters.Width);
             _solidWorksApi.FigureElongationBySketchForBonds(bondParameters.Length);
             _solidWorksApi.RemoveAllocations();
         }
@@ -79,6 +94,7 @@ namespace SolidworksChairPlugin.Model
             CreateSeat(chairParameters.SeatParameters);
             CreateLeg(chairParameters.LegParameters, chairParameters.SeatParameters);
             CreateBond(chairParameters.BondParameters, chairParameters.SeatParameters, chairParameters.LegParameters);
+            CreateChairBack(chairParameters.SeatParameters, chairParameters.LegParameters, chairParameters.BondParameters);
         }
         #endregion Методы построения табурета
 

@@ -72,6 +72,12 @@ namespace SolidworksChairPlugin.Model
             }
         }
 
+        public void CreateChairBack(int xaxis, int yaxis)
+        {
+            _model.SketchManager.CreateCornerRectangle(xaxis / 2, xaxis / 2, 0, (xaxis / 2) - yaxis, (xaxis / 2) - yaxis, 0);
+            _model.SketchManager.CreateCornerRectangle(0 - xaxis / 2, xaxis / 2 - yaxis, 0, yaxis - xaxis / 2, xaxis / 2, 0);
+        }
+
         /// <summary>
         /// Метод запускающий solidworks
         /// </summary>
@@ -116,6 +122,14 @@ namespace SolidworksChairPlugin.Model
         {
             _model.SketchManager.CreateCornerRectangle((0 - (xaxis/2)) + yaxis, -140, 0, 0 - xaxis/2, -160, 0);
             _model.SketchManager.CreateCornerRectangle(xaxis/2 - yaxis, -140, 0, xaxis /2, -160, 0);
+        }
+
+        public void DrawingRectangleForBondsOfChairBack(int xaxis, int yaxis)
+        {
+            _model.SketchManager.CreateCornerRectangle(xaxis / 2 - yaxis, 280, 0, xaxis / 2, 300, 0);
+            _model.SketchManager.CreateCornerRectangle(xaxis / 2 - yaxis, 320, 0, xaxis / 2, 340, 0);
+            _model.SketchManager.CreateCornerRectangle(xaxis / 2 - yaxis, 240, 0, xaxis / 2, 260, 0);
+
         }
 
         /// <summary>
@@ -211,6 +225,12 @@ namespace SolidworksChairPlugin.Model
         {
             _model.FeatureManager.FeatureExtrusion2(false, false, true, -1, -1, height, 0.01, false, false, false, false,
                1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, false, -100, -100, true);
+        }
+
+        public void FigureElongationBySketchForChairBack(int height)
+        {
+            _model.FeatureManager.FeatureExtrusion2(true, false, false, 0, 0, height, height, false, false, false, false,
+              1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, true, true, true, 0, 0, false);
         }
 
 
