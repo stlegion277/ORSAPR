@@ -79,7 +79,7 @@ namespace SolidworksChairPlugin.Model
         }
 
         /// <summary>
-        /// Свойства высоты связи между ножками табурета
+        /// Свойства высоты связи между ножками табурет
         /// </summary>
         public int Height
         {
