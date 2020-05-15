@@ -116,6 +116,11 @@ namespace SolidworksChairPlugin.Model
             }
         }
 
+        /// <summary>
+        /// Проверка зависимых параметров
+        /// </summary>
+        /// <param name="parameter1">первый параметр табурета</param>
+        /// <param name="parameter2">второй параметр табурета</param>
         public void CheckDepenpdentValues(int parameter1, int parameter2)
         {
             if (parameter1 != parameter2)
@@ -128,25 +133,7 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         public void ValidateParameters()
         {
-            CheckValueRange(BondParameters.Width, BondParameters.Width, LegParameters.Width, 20);
-
-            CheckValueRange(BondParameters.Height, BondParameters.Width, 30, 50);
-
-            CheckValueRange(SeatParameters.Length, SeatParameters.Length, 320, 500);
-
-            CheckValueRange(SeatParameters.Thickness, SeatParameters.Thickness, 40, 100);
-
-            CheckValueRange(LegParameters.Length, LegParameters.Length, 40, 100);
-
-            CheckValueRange(LegParameters.Height, LegParameters.Length, 500, 1000);
-
-            CheckDepenpdentValues(LegParameters.Width, LegParameters.Length);
-
-            CheckDepenpdentValues(SeatParameters.Width, SeatParameters.Length);
-
             CheckDepenpdentValues(BondParameters.Width, LegParameters.Width);
-
-            CheckDepenpdentValues(BondParameters.Height, BondParameters.Width);
 
             if (BondParameters.Length != (SeatParameters.Length - (LegParameters.Width * 2)))
             {

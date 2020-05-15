@@ -118,17 +118,81 @@ namespace ModelParametersTests
             legParameters.Width = Width;
         }
 
-        [TestCase(40, 40, 45, TestName = "Ќегативный тест установки ширины ножки со значением 45")]
-        [TestCase(100, 100, 110, TestName = "Ќегативный тест установки ширины ножки со значением 110")]
-        public void SetBondWidth_NegativeTest(int LegLength, int LegWidth, int Width)
+        [TestCase(0, TestName = "Ќегативный тест установки ширины св€зи со значением 0")]
+        [TestCase(0, TestName = "Ќегативный тест установки ширины св€зи со значением 0")]
+        public void SetBondWidth_NegativeTest(int Width)
         {
-            var legParameters = new LegParameters();
             var bondParameters = new BondParameters();
-            legParameters.Length = LegLength;
-            legParameters.Width = LegWidth;
-            Assert.Throws<ArgumentOutOfRangeException>(() =>
+            Assert.Throws<ArgumentNullException>(() =>
             bondParameters.Width = Width);
         }
+
+        [TestCase(40, TestName = "ѕозитивный тест установки ширины св€зи со значением 40")]
+        [TestCase(100, TestName = "ѕозитивный тест установки ширины св€зи со значением 100")]
+        public void SetBondWidth_PositiveTest(int Width)
+        {
+            var bondParameters = new BondParameters();
+            bondParameters.Width = Width;
+        }
+
+        [TestCase(40, 40, TestName = "ѕозитивный тест установки высоты св€зи со значением 40")]
+        [TestCase(100, 100, TestName = "ѕозитивный тест установки высоты св€зи со значением 100")]
+        public void SetBondHeight_PositiveTest(int Width, int Height)
+        {
+            var bondParameters = new BondParameters();
+            bondParameters.Width = Width;
+            bondParameters.Height = Height;
+        }
+
+
+        [TestCase(40, 45, TestName = "Ќегативный тест установки высоты св€зи со значением 45")]
+        [TestCase(100, 110, TestName = "Ќегативный тест установки высоты св€зи со значением 110")]
+        public void SetBondHeight_NegativeTest(int Width, int Height)
+        {
+            var bondParameters = new BondParameters();
+            bondParameters.Width = Width;
+            Assert.Throws<ArgumentOutOfRangeException>(() =>
+            bondParameters.Height = Height);
+        }
+
+
+        [TestCase(240, TestName = "ѕозитивный тест установки длины св€зи со значением 240")]
+        [TestCase(320, TestName = "ѕозитивный тест установки длины св€зи со значением 320")]
+        public void SetBondLength_PositiveTest(int Length)
+        {
+            var bondParameters = new BondParameters();
+            bondParameters.Length = Length;
+        }
+
+        [TestCase(0, TestName = "Ќегативный тест установки длины св€зи со значением 0")]
+        [TestCase(0, TestName = "Ќегативный тест установки длины св€зи со значением 0")]
+        public void SetBondLength_NegativeTest(int Length)
+        {
+            var bondParameters = new BondParameters();
+            Assert.Throws<ArgumentNullException>(() =>
+           bondParameters.Length = Length);
+        }
+
+        [TestCase(null, null, null, TestName = "Ќегативный тест дл€ класса ChairParameters со значением null")]
+        public void SetChairParametersBond_NegativeTest(BondParameters bondParameters, SeatParameters 
+            seatParameters, LegParameters legParameters)
+        {
+            var chairParameters = new ChairParameters(new LegParameters(), new SeatParameters(), new BondParameters());
+            Assert.Throws<ArgumentNullException>(() =>
+           chairParameters.BondParameters = bondParameters);
+            Assert.Throws<ArgumentNullException>(() =>
+           chairParameters.SeatParameters = seatParameters);
+            Assert.Throws<ArgumentNullException>(() =>
+           chairParameters.LegParameters = legParameters);
+        }
+
+
+
+
+
+
+
+
 
 
 

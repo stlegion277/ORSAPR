@@ -119,9 +119,9 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-               if (value != (SeatParameters.Length - (LegParameters.Width * 2)))
+               if (value == 0)
                 {
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentNullException();
                 }
                 _length = value;
             }
@@ -138,9 +138,9 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-                if (value != _legParameters.Width)
+                if (value == 0)
                 {
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentNullException();
                 }
                 _width = value;
             }
