@@ -480,7 +480,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ToolTip ChairParametersToolTIp;
         private System.Windows.Forms.Button TestValuesButton;
-        public System.Windows.Forms.CheckBox ChairBackCheckBox;
+        private System.Windows.Forms.CheckBox ChairBackCheckBox;
     }
 }
 

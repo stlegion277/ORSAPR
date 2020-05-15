@@ -12,11 +12,8 @@ namespace SolidworksChairPlugin.Model
     /// </summary>
     class ChairBuilder
     {
-        private ChairParameters _chairParameters;
 
         private SolidWorksApi _solidWorksApi;
-
-        private MainForm mainForm;
 
         public ChairBuilder()
         {
