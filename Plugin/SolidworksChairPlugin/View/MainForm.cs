@@ -102,6 +102,7 @@ namespace SolidworksChairPlugin
             {
                 isValuesRight = true;
                 _chairParameters = GetValuesFromTextBox();
+                _chairParameters.ValidateParameters();
             }
             catch
             {

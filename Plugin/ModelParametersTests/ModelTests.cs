@@ -4,6 +4,9 @@ using SolidworksChairPlugin.Model;
 
 namespace ModelParametersTests
 {
+    /// <summary>
+    /// Модульные тесты для параметров табурета
+    /// </summary>
     [TestFixture]
     public class ModelParametersTests
     {
@@ -88,6 +91,14 @@ namespace ModelParametersTests
             legParameters.Length = Length);
         }
 
+        [TestCase(40, TestName = "Позитивный тест установки длины ножки со значением 40")]
+        [TestCase(100, TestName = "Позитивный тест установки длины ножки со значением 100")]
+        public void SetLegLength_PositiveTest(int Length)
+        {
+            var legParameters = new LegParameters();
+            legParameters.Length = Length;
+        }
+
         [TestCase(45, 40, TestName = "Негативный тест установки ширины ножки со значением 35")]
         [TestCase(95, 100, TestName = "Негативный тест установки ширины ножки со значением 95")]
         public void SetLegWidth_NegativeTest(int Length, int Width)
@@ -98,8 +109,30 @@ namespace ModelParametersTests
             legParameters.Width = Width);
         }
 
+        [TestCase(40, 40, TestName = "Позитивный тест установки ширины ножки со значением 40")]
+        [TestCase(100, 100, TestName = "Позитивный тест установки ширины ножки со значением 100")]
+        public void SetLegWidth_PositiveTest(int Length, int Width)
+        {
+            var legParameters = new LegParameters();
+            legParameters.Length = Length;
+            legParameters.Width = Width;
+        }
 
- 
+        [TestCase(40, 40, 45, TestName = "Негативный тест установки ширины ножки со значением 45")]
+        [TestCase(100, 100, 110, TestName = "Негативный тест установки ширины ножки со значением 110")]
+        public void SetBondWidth_NegativeTest(int LegLength, int LegWidth, int Width)
+        {
+            var legParameters = new LegParameters();
+            var bondParameters = new BondParameters();
+            legParameters.Length = LegLength;
+            legParameters.Width = LegWidth;
+            Assert.Throws<ArgumentOutOfRangeException>(() =>
+            bondParameters.Width = Width);
+        }
+
+
+
+
 
 
 

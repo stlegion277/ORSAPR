@@ -50,6 +50,10 @@ namespace SolidworksChairPlugin.Model
         #endregion Параметры
 
         #region Свойства
+
+        /// <summary>
+        /// Свойство высоты ножки
+        /// </summary>
         public int Height
         {
             get
@@ -66,22 +70,9 @@ namespace SolidworksChairPlugin.Model
             }
         }
 
-        public int Width
-        {
-            get
-            {
-                return _width;
-            }
-            set
-            {
-                if (value != _length)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-                _width = _length;
-            }
-        }
-
+        /// <summary>
+        /// Свойство длины ножки
+        /// </summary>
         public int Length
         {
             get
@@ -97,9 +88,30 @@ namespace SolidworksChairPlugin.Model
                 _length = value;
             }
         }
+
+        /// <summary>
+        /// Свойство ширины ножки
+        /// </summary>
+        public int Width
+        {
+            get
+            {
+                return _width;
+            }
+            set
+            {
+                if (value != _length)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                _width = _length;
+            }
+        }
         #endregion Свойства
 
-
+        /// <summary>
+        /// Конструктор класса LegParameters
+        /// </summary>
         public LegParameters()
         {
 

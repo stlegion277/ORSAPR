@@ -115,6 +115,14 @@ namespace SolidworksChairPlugin.Model
                 throw new ArgumentOutOfRangeException();
             }
         }
+
+        public void CheckDepenpdentValues(int parameter1, int parameter2)
+        {
+            if (parameter1 != parameter2)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+        }
         /// <summary>
         /// Валидация параметров табурета
         /// </summary>
@@ -132,16 +140,15 @@ namespace SolidworksChairPlugin.Model
 
             CheckValueRange(LegParameters.Height, LegParameters.Length, 500, 1000);
 
-            //проверка зависимых параметров, конкретно здесь проверяется равны ли стороны сидушки
-            if (SeatParameters.Width != SeatParameters.Length)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-            if (LegParameters.Width != LegParameters.Length)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-            if (BondParameters.Length != (SeatParameters.Length - 5 - (LegParameters.Width * 2)))
+            CheckDepenpdentValues(LegParameters.Width, LegParameters.Length);
+
+            CheckDepenpdentValues(SeatParameters.Width, SeatParameters.Length);
+
+            CheckDepenpdentValues(BondParameters.Width, LegParameters.Width);
+
+            CheckDepenpdentValues(BondParameters.Height, BondParameters.Width);
+
+            if (BondParameters.Length != (SeatParameters.Length - (LegParameters.Width * 2)))
             {
                 throw new ArgumentOutOfRangeException();
             }
