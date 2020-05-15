@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -116,11 +117,10 @@ namespace SolidworksChairPlugin
                 if (ChairBackCheckBox.Checked == true)
                 {
                     _chairBuilder.CreateChairBack(_chairParameters.SeatParameters, _chairParameters.
-                        LegParameters, _chairParameters.BondParameters);
-                }
-               
+                       LegParameters, _chairParameters.BondParameters);
+               }
+
             }
-           
         }
 
         /// <summary>
