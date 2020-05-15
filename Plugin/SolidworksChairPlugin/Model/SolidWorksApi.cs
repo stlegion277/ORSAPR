@@ -71,7 +71,13 @@ namespace SolidworksChairPlugin.Model
                 throw new Exception("SolidWorks 2020 не найден на вашем компьютере");
             }
         }
-
+        /// <summary>
+        /// Рисует две опоры спинки табурета
+        /// Параметры ножек и сидушки используются, 
+        /// поскольку построение сидушки полностью от них и зависит
+        /// </summary>
+        /// <param name="xaxis">ширина сидушки</param>
+        /// <param name="yaxis">ширина ножки</param>
         public void CreateChairBack(int xaxis, int yaxis)
         {
             _model.SketchManager.CreateCornerRectangle(xaxis / 2, xaxis / 2, 0, (xaxis / 2) - yaxis, (xaxis / 2) - yaxis, 0);
@@ -81,7 +87,7 @@ namespace SolidworksChairPlugin.Model
         /// <summary>
         /// Метод запускающий solidworks
         /// </summary>
-        /// <param name="processSolidWorks"></param>
+        /// <param name="processSolidWorks">процесс solidworks 2020</param>
         public void StartSolidWorks(object processSolidWorks)
         {
             _solidWorks = (SldWorks)processSolidWorks;
@@ -91,9 +97,9 @@ namespace SolidworksChairPlugin.Model
         /// <summary>
         /// Метод рисующий квадрат из центра (используется для построения сиденья)
         /// </summary>
-        /// <param name="xaxis"></param>
-        /// <param name="yaxis"></param>
-        /// <param name="center"></param>
+        /// <param name="xaxis">ширина сидушки</param>
+        /// <param name="yaxis">длина сидушки</param>
+        /// <param name="center">центральная координата, по которой рисуется квадрат</param>
         public void DrawingRectangle(int xaxis, int yaxis, int center = 0)
         {
             _model.SketchManager.CreateCenterRectangle(center, 0, 0, xaxis/2, yaxis/2, 0);
@@ -102,8 +108,8 @@ namespace SolidworksChairPlugin.Model
         /// <summary>
         /// Метод, использующийся для построения ножек. Квадраты рисуются из угла.
         /// </summary>
-        /// <param name="xaxis"></param>
-        /// <param name="yaxis"></param>
+        /// <param name="xaxis">ширина сидушки</param>
+        /// <param name="yaxis">ширина ножки</param>
         public void DrawingRectangleForLegs(int xaxis, int yaxis )
         {
             _model.SketchManager.CreateCornerRectangle(xaxis/2, xaxis/2, 0, (xaxis/2)-yaxis, (xaxis/2)-yaxis, 0);
@@ -116,14 +122,20 @@ namespace SolidworksChairPlugin.Model
         /// <summary>
         /// Метод, использующийся для построения связей. Квадраты рисуются из угла.
         /// </summary>
-        /// <param name="xaxis"></param>
-        /// <param name="yaxis"></param>
+        /// <param name="xaxis">ширина сиденья(отрисовка квадрата осуществляется через параметр сидушки, 
+        /// так как ориентироваться надо координаты сидушки</param>
+        /// <param name="yaxis">ширина ножки</param>
         public void DrawingRectangleForBonds(int xaxis, int yaxis)
         {
             _model.SketchManager.CreateCornerRectangle((0 - (xaxis/2)) + yaxis, -140, 0, 0 - xaxis/2, -160, 0);
             _model.SketchManager.CreateCornerRectangle(xaxis/2 - yaxis, -140, 0, xaxis /2, -160, 0);
         }
 
+        /// <summary>
+        /// Метод, который строит связи между двух опор спинки табурета
+        /// </summary>
+        /// <param name="xaxis">ширина сидушки</param>
+        /// <param name="yaxis">ширина связи</param>
         public void DrawingRectangleForBondsOfChairBack(int xaxis, int yaxis)
         {
             _model.SketchManager.CreateCornerRectangle(xaxis / 2 - yaxis, 280, 0, xaxis / 2, 300, 0);
@@ -137,8 +149,9 @@ namespace SolidworksChairPlugin.Model
         /// Отдельный метод понадобился из-за смены плоскостей, если пытаться рисовать связи 
         /// сразу после смены плоскости это приводит к ошибкам. 
         /// </summary>
-        /// <param name="xaxis"></param>
-        /// <param name="yaxis"></param>
+        /// <param name="xaxis">ширина сиденья(отрисовка квадрата осуществляется через параметр сидушки, 
+        /// так как ориентироваться надо координаты сидушки</param>
+        /// <param name="yaxis">ширина ножки</param>
         public void DrawingRectangleForBondsYOZ(int xaxis, int yaxis)
         {
             _model.SketchManager.CreateCornerRectangle((0 - (xaxis / 2)) + yaxis, -140, 0, 0 - xaxis / 2, -160, 0);
@@ -198,8 +211,8 @@ namespace SolidworksChairPlugin.Model
         /// <summary>
         /// Вырез фигуры по эскизу
         /// </summary>
-        /// <param name="height"></param>
-        /// <param name="upDirection"></param>
+        /// <param name="height">глубина выреза</param>
+        /// <param name="upDirection">направление выреза</param>
         public void FigureCutBySketch(int height, bool upDirection = false)
         {
             _model.FeatureManager.FeatureCut4(true, false, upDirection, 0, 0, height, 0.01, false, false, false, false,
@@ -209,7 +222,7 @@ namespace SolidworksChairPlugin.Model
         /// <summary>
         /// Вытягивание фигуры по эскизу
         /// </summary>
-        /// <param name="height"></param>
+        /// <param name="height">высота вытягивания</param>
         public void FigureElongationBySketch(int height)
         {
             _model.FeatureManager.FeatureExtrusion2(true, false, true, 0, 0, height, 0.01, false, false, false, false,
@@ -220,7 +233,7 @@ namespace SolidworksChairPlugin.Model
         /// Вытягивание фигуры по эскизу для связей. 
         /// Отдельный метод понадобился из-за разных меток true false.
         /// </summary>
-        /// <param name="height"></param>
+        /// <param name="height">высота вытягивания</param>
         public void FigureElongationBySketchForBonds(int height)
         {
             _model.FeatureManager.FeatureExtrusion2(false, false, true, -1, -1, height, 0.01, false, false, false, false,
@@ -237,7 +250,8 @@ namespace SolidworksChairPlugin.Model
         /// <summary>
         /// Меняет плоскость и оси
         /// </summary>
-        /// <param name="height"></param>
+        /// <param name="height">тут высота нужна для привязки к ножке табурета, 
+        /// что и позволяет менять ось</param>
         public void SelectLayerByRay(int height)
         {
             _model.Extension.SelectByRay(0, height, 0, 1, height, 1, 1, 2, false, 0, 0);

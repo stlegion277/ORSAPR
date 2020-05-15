@@ -39,6 +39,9 @@ namespace SolidworksChairPlugin.Model
         #endregion Параметры
 
 
+        /// <summary>
+        /// Конструктор класса BondParameters
+        /// </summary>
         public BondParameters()
         {
                 
@@ -47,6 +50,10 @@ namespace SolidworksChairPlugin.Model
 
 
         #region Свойства
+
+        /// <summary>
+        /// Свойство параметров сидушки
+        /// </summary>
         public SeatParameters SeatParameters
         {
             get
@@ -62,6 +69,10 @@ namespace SolidworksChairPlugin.Model
                 _seatParameters = value;
             }
         }
+
+        /// <summary>
+        /// Свойство параметров ножки
+        /// </summary>
         public LegParameters LegParameters
         {
             get

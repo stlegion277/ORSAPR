@@ -26,8 +26,32 @@ namespace SolidworksChairPlugin.Model
         /// Длина сидушки
         /// </summary>
         private int _length;
+
+        /// <summary>
+        /// Минимальная толщина сиденья
+        /// </summary>
+        private int _thicknessMinValue = 40;
+
+        /// <summary>
+        /// Максимальная толщина сиденья
+        /// </summary>
+        private int _thicknessMaxValue = 100;
+
+        /// <summary>
+        /// Минимальная длина сиденья
+        /// </summary>
+        private int _lengthMinValue = 320;
+
+        /// <summary>
+        /// Максимальная длина сиденья
+        /// </summary>
+        private int _lengthMaxValue = 500;
+
         #endregion Параметры
 
+        /// <summary>
+        /// Конструктор класса SeatParameters
+        /// </summary>
         public SeatParameters()
         {
 
@@ -35,6 +59,10 @@ namespace SolidworksChairPlugin.Model
      
 
         #region Свойства
+
+        /// <summary>
+        /// Свойство ширины сидушки
+        /// </summary>
         public int Width
         {
             get
@@ -51,6 +79,9 @@ namespace SolidworksChairPlugin.Model
             }
         }
 
+        /// <summary>
+        /// Свойство толщины сидушки
+        /// </summary>
         public int Thickness
         {
             get
@@ -59,7 +90,7 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-                if (value < 40 || value > 100)
+                if (value < _thicknessMinValue || value > _thicknessMaxValue)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -67,6 +98,9 @@ namespace SolidworksChairPlugin.Model
             }
         }
 
+        /// <summary>
+        /// Свойство длины сидушки
+        /// </summary>
         public int Length
         {
             get
@@ -75,7 +109,7 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-                if (value < 320 || value > 500)
+                if (value < _lengthMinValue || value > _lengthMaxValue)
                 {
                     throw new ArgumentOutOfRangeException();
                 }

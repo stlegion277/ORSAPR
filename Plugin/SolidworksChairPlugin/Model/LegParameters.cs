@@ -27,6 +27,26 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         private int _length;
 
+        /// <summary>
+        /// Минимальная высота ножки
+        /// </summary>
+        private int _legHeightMinValue = 500;
+
+        /// <summary>
+        /// Максимальная высота ножки
+        /// </summary>
+        private int _legHeightMaxValue = 1000;
+
+        /// <summary>
+        /// Минимальная длина ножки
+        /// </summary>
+        private int _legLengthMinValue = 40;
+
+        /// <summary>
+        /// Максимальная длина ножки
+        /// </summary>
+        private int _legLengthMaxValue = 100;
+
         #endregion Параметры
 
         #region Свойства
@@ -38,7 +58,7 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-                if (value < 500 || value > 1000)
+                if (value < _legHeightMinValue || value > _legHeightMaxValue)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -70,7 +90,7 @@ namespace SolidworksChairPlugin.Model
             }
             set
             {
-                if (value < 40 || value > 100)
+                if (value < _legLengthMinValue || value > _legLengthMaxValue)
                 {
                     throw new ArgumentOutOfRangeException();
                 }

@@ -31,9 +31,9 @@ namespace SolidworksChairPlugin.Model
         /// <summary>
         /// Конструктор класса параметров всего табурета
         /// </summary>
-        /// <param name="legParameters"></param>
-        /// <param name="seatParameters"></param>
-        /// <param name="bondParameters"></param>
+        /// <param name="legParameters">Параметры ножек</param>
+        /// <param name="seatParameters">Параметры сидушки</param>
+        /// <param name="bondParameters">Параметры связей</param>
         public ChairParameters(LegParameters legParameters, SeatParameters seatParameters, BondParameters bondParameters)
         {
             LegParameters = legParameters;
@@ -41,6 +41,10 @@ namespace SolidworksChairPlugin.Model
             SeatParameters = seatParameters;
         }
         #region Свойства
+
+        /// <summary>
+        /// Свойство для параметров связей
+        /// </summary>
         public BondParameters BondParameters
         {
             get
@@ -57,6 +61,9 @@ namespace SolidworksChairPlugin.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для параметров сидушки
+        /// </summary>
         public SeatParameters SeatParameters
         {
             get
@@ -73,6 +80,9 @@ namespace SolidworksChairPlugin.Model
             }
         }
 
+        /// <summary>
+        /// Свойство для параметров ножек
+        /// </summary>
         public LegParameters LegParameters
         {
             get

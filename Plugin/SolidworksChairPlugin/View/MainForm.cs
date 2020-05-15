@@ -12,20 +12,35 @@ using System.Windows.Forms;
 
 namespace SolidworksChairPlugin
 {
+    /// <summary>
+    /// Класс, хранящий в себе методы выполняющиеся на форме
+    /// </summary>
     public partial class MainForm : Form
     {
+
+        /// <summary>
+        /// Инициализация формы
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
         }
 
         #region Параметры
+
+        /// <summary>
+        /// Обьект класса ChairParameters
+        /// </summary>
         private ChairParameters _chairParameters;
 
-
+        /// <summary>
+        /// Команды API SolidWorks
+        /// </summary>
         private SolidWorksApi _solidWorksApi = new SolidWorksApi();
 
-
+        /// <summary>
+        /// Строитель табурета
+        /// </summary>
         private ChairBuilder _chairBuilder = new ChairBuilder();
         #endregion Параметры
 
