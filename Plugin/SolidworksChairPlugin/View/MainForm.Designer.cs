@@ -63,6 +63,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.ChairParametersToolTIp = new System.Windows.Forms.ToolTip(this.components);
             this.TestValuesButton = new System.Windows.Forms.Button();
+            this.ChairBackCheckBox = new System.Windows.Forms.CheckBox();
             this.LegParametersGroupBox.SuspendLayout();
             this.SeatParametersGroupBox.SuspendLayout();
             this.BondParametersGroupBox.SuspendLayout();
@@ -262,7 +263,7 @@
             // 
             // BuildStartButton
             // 
-            this.BuildStartButton.Location = new System.Drawing.Point(12, 384);
+            this.BuildStartButton.Location = new System.Drawing.Point(12, 413);
             this.BuildStartButton.Name = "BuildStartButton";
             this.BuildStartButton.Size = new System.Drawing.Size(233, 28);
             this.BuildStartButton.TabIndex = 21;
@@ -272,7 +273,7 @@
             // 
             // ClosingSolidWorksButton
             // 
-            this.ClosingSolidWorksButton.Location = new System.Drawing.Point(12, 418);
+            this.ClosingSolidWorksButton.Location = new System.Drawing.Point(12, 447);
             this.ClosingSolidWorksButton.Name = "ClosingSolidWorksButton";
             this.ClosingSolidWorksButton.Size = new System.Drawing.Size(233, 28);
             this.ClosingSolidWorksButton.TabIndex = 22;
@@ -398,7 +399,7 @@
             // 
             // TestValuesButton
             // 
-            this.TestValuesButton.Location = new System.Drawing.Point(12, 451);
+            this.TestValuesButton.Location = new System.Drawing.Point(12, 481);
             this.TestValuesButton.Name = "TestValuesButton";
             this.TestValuesButton.Size = new System.Drawing.Size(233, 35);
             this.TestValuesButton.TabIndex = 26;
@@ -406,12 +407,23 @@
             this.TestValuesButton.UseVisualStyleBackColor = true;
             this.TestValuesButton.Click += new System.EventHandler(this.TestValuesButton_Click);
             // 
+            // ChairBackCheckBox
+            // 
+            this.ChairBackCheckBox.AutoSize = true;
+            this.ChairBackCheckBox.Location = new System.Drawing.Point(45, 384);
+            this.ChairBackCheckBox.Name = "ChairBackCheckBox";
+            this.ChairBackCheckBox.Size = new System.Drawing.Size(182, 21);
+            this.ChairBackCheckBox.TabIndex = 27;
+            this.ChairBackCheckBox.Text = "Смоделировать спинку";
+            this.ChairBackCheckBox.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(259, 498);
+            this.ClientSize = new System.Drawing.Size(265, 528);
+            this.Controls.Add(this.ChairBackCheckBox);
             this.Controls.Add(this.TestValuesButton);
             this.Controls.Add(this.BondParametersGroupBox);
             this.Controls.Add(this.SeatParametersGroupBox);
@@ -428,6 +440,7 @@
             this.BondParametersGroupBox.ResumeLayout(false);
             this.BondParametersGroupBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -467,6 +480,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ToolTip ChairParametersToolTIp;
         private System.Windows.Forms.Button TestValuesButton;
+        public System.Windows.Forms.CheckBox ChairBackCheckBox;
     }
 }
 

@@ -97,6 +97,12 @@ namespace SolidworksChairPlugin
             if (isValuesRight)
             {
                 _chairBuilder.ChairBuilding(_chairParameters, _solidWorksApi);
+                if (ChairBackCheckBox.Checked == true)
+                {
+                    _chairBuilder.CreateChairBack(_chairParameters.SeatParameters, _chairParameters.
+                        LegParameters, _chairParameters.BondParameters);
+                }
+               
             }
            
         }

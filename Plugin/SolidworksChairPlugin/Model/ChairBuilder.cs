@@ -16,6 +16,8 @@ namespace SolidworksChairPlugin.Model
 
         private SolidWorksApi _solidWorksApi;
 
+        private MainForm mainForm;
+
         public ChairBuilder()
         {
 
@@ -41,7 +43,7 @@ namespace SolidworksChairPlugin.Model
             _solidWorksApi.RemoveAllocations();
         }
 
-        private void CreateChairBack(SeatParameters seatParameters, LegParameters 
+        public void CreateChairBack(SeatParameters seatParameters, LegParameters 
             legParameters, BondParameters bondParameters)
         {
             _solidWorksApi.LayerSelection();
@@ -93,8 +95,8 @@ namespace SolidworksChairPlugin.Model
             solidWorksApi.CreateSolidWorksFile();
             CreateSeat(chairParameters.SeatParameters);
             CreateLeg(chairParameters.LegParameters, chairParameters.SeatParameters);
-            CreateBond(chairParameters.BondParameters, chairParameters.SeatParameters, chairParameters.LegParameters);
-            CreateChairBack(chairParameters.SeatParameters, chairParameters.LegParameters, chairParameters.BondParameters);
+            CreateBond(chairParameters.BondParameters, chairParameters.SeatParameters, 
+                chairParameters.LegParameters);
         }
         #endregion Методы построения табурета
 
