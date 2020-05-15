@@ -61,15 +61,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.SeatLengthToolTIp = new System.Windows.Forms.ToolTip(this.components);
-            this.SeatWidthToolTIp = new System.Windows.Forms.ToolTip(this.components);
-            this.SeatThicknessToolTIp = new System.Windows.Forms.ToolTip(this.components);
-            this.LegLengthToolTIp = new System.Windows.Forms.ToolTip(this.components);
-            this.LegWidthToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.LegHeightToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.BondLengthToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.BondWidthToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.BondHeightToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ChairParametersToolTIp = new System.Windows.Forms.ToolTip(this.components);
             this.TestValuesButton = new System.Windows.Forms.Button();
             this.LegParametersGroupBox.SuspendLayout();
             this.SeatParametersGroupBox.SuspendLayout();
@@ -136,9 +128,8 @@
             this.LegLengthTextBox.Name = "LegLengthTextBox";
             this.LegLengthTextBox.Size = new System.Drawing.Size(100, 22);
             this.LegLengthTextBox.TabIndex = 6;
-            this.LegLengthTextBox.Enter += new System.EventHandler(this.LegLengthTextBox_Enter);
+            this.ChairParametersToolTIp.SetToolTip(this.LegLengthTextBox, "Длина ножки должна быть не меньше 40-а и не больше 100-а");
             this.LegLengthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
-            this.LegLengthTextBox.Leave += new System.EventHandler(this.LegLengthTextBox_Leave);
             // 
             // LegWidthTextBox
             // 
@@ -146,9 +137,8 @@
             this.LegWidthTextBox.Name = "LegWidthTextBox";
             this.LegWidthTextBox.Size = new System.Drawing.Size(100, 22);
             this.LegWidthTextBox.TabIndex = 7;
-            this.LegWidthTextBox.Enter += new System.EventHandler(this.LegWidthTextBox_Enter);
+            this.ChairParametersToolTIp.SetToolTip(this.LegWidthTextBox, "Ширина ножки должна быть равна длине ножки");
             this.LegWidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
-            this.LegWidthTextBox.Leave += new System.EventHandler(this.LegWidthTextBox_Leave);
             // 
             // LegHeightTextBox
             // 
@@ -156,9 +146,8 @@
             this.LegHeightTextBox.Name = "LegHeightTextBox";
             this.LegHeightTextBox.Size = new System.Drawing.Size(100, 22);
             this.LegHeightTextBox.TabIndex = 8;
-            this.LegHeightTextBox.Enter += new System.EventHandler(this.LegHeightTextBox_Enter);
+            this.ChairParametersToolTIp.SetToolTip(this.LegHeightTextBox, "Высота ножки должна быть не меньше 500-а и не больше 1000-и");
             this.LegHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
-            this.LegHeightTextBox.Leave += new System.EventHandler(this.LegHeightTextBox_Leave);
             // 
             // SeatLengthTextBox
             // 
@@ -168,9 +157,8 @@
             this.SeatLengthTextBox.ShortcutsEnabled = false;
             this.SeatLengthTextBox.Size = new System.Drawing.Size(100, 22);
             this.SeatLengthTextBox.TabIndex = 9;
-            this.SeatLengthTextBox.Enter += new System.EventHandler(this.SeatLengthTextBox_Enter);
+            this.ChairParametersToolTIp.SetToolTip(this.SeatLengthTextBox, "Длина и ширина сиденья должны быть равны");
             this.SeatLengthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
-            this.SeatLengthTextBox.Leave += new System.EventHandler(this.SeatLengthTextBox_Leave);
             // 
             // SeatWidthTextBox
             // 
@@ -178,9 +166,8 @@
             this.SeatWidthTextBox.Name = "SeatWidthTextBox";
             this.SeatWidthTextBox.Size = new System.Drawing.Size(100, 22);
             this.SeatWidthTextBox.TabIndex = 10;
-            this.SeatWidthTextBox.Enter += new System.EventHandler(this.SeatWidthTextBox_Enter);
+            this.ChairParametersToolTIp.SetToolTip(this.SeatWidthTextBox, "Длина и ширина сиденья должны быть равны");
             this.SeatWidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
-            this.SeatWidthTextBox.Leave += new System.EventHandler(this.SeatWidthTextBox_Leave);
             // 
             // SeatThicknessTextBox
             // 
@@ -188,9 +175,8 @@
             this.SeatThicknessTextBox.Name = "SeatThicknessTextBox";
             this.SeatThicknessTextBox.Size = new System.Drawing.Size(100, 22);
             this.SeatThicknessTextBox.TabIndex = 11;
-            this.SeatThicknessTextBox.Enter += new System.EventHandler(this.SeatThicknessTextBox_Enter);
+            this.ChairParametersToolTIp.SetToolTip(this.SeatThicknessTextBox, "Толщина сиденья должна быть не меньше 40-а и не больше 100-а");
             this.SeatThicknessTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
-            this.SeatThicknessTextBox.Leave += new System.EventHandler(this.SeatThicknessTextBox_Leave);
             // 
             // BondLengthTextBox
             // 
@@ -198,9 +184,9 @@
             this.BondLengthTextBox.Name = "BondLengthTextBox";
             this.BondLengthTextBox.Size = new System.Drawing.Size(100, 22);
             this.BondLengthTextBox.TabIndex = 12;
-            this.BondLengthTextBox.Enter += new System.EventHandler(this.BondLengthTextBox_Enter);
+            this.ChairParametersToolTIp.SetToolTip(this.BondLengthTextBox, "Длина связи должна быть равна расстоянию между ножками табурета\r\nФормула: Длина с" +
+        "вязи = Ширина сиденья - Ширина ножки * 2");
             this.BondLengthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
-            this.BondLengthTextBox.Leave += new System.EventHandler(this.BondLengthTextBox_Leave);
             // 
             // BondWidthTextBox
             // 
@@ -208,9 +194,8 @@
             this.BondWidthTextBox.Name = "BondWidthTextBox";
             this.BondWidthTextBox.Size = new System.Drawing.Size(100, 22);
             this.BondWidthTextBox.TabIndex = 13;
-            this.BondWidthTextBox.Enter += new System.EventHandler(this.BondWidthTextBox_Enter);
+            this.ChairParametersToolTIp.SetToolTip(this.BondWidthTextBox, "Ширина связи должна быть равна ширине ножки");
             this.BondWidthTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
-            this.BondWidthTextBox.Leave += new System.EventHandler(this.BondWidthTextBox_Leave);
             // 
             // BondHeightTextBox
             // 
@@ -218,9 +203,8 @@
             this.BondHeightTextBox.Name = "BondHeightTextBox";
             this.BondHeightTextBox.Size = new System.Drawing.Size(100, 22);
             this.BondHeightTextBox.TabIndex = 14;
-            this.BondHeightTextBox.Enter += new System.EventHandler(this.BondHeightTextBox_Enter);
+            this.ChairParametersToolTIp.SetToolTip(this.BondHeightTextBox, "Высота связи должна быть равна ширине связи");
             this.BondHeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressOnlyDigit);
-            this.BondHeightTextBox.Leave += new System.EventHandler(this.BondHeightTextBox_Leave);
             // 
             // label7
             // 
@@ -404,6 +388,14 @@
             this.label16.TabIndex = 21;
             this.label16.Text = "мм";
             // 
+            // ChairParametersToolTIp
+            // 
+            this.ChairParametersToolTIp.AutoPopDelay = 5000;
+            this.ChairParametersToolTIp.InitialDelay = 50;
+            this.ChairParametersToolTIp.IsBalloon = true;
+            this.ChairParametersToolTIp.ReshowDelay = 100;
+            this.ChairParametersToolTIp.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
             // TestValuesButton
             // 
             this.TestValuesButton.Location = new System.Drawing.Point(12, 451);
@@ -473,15 +465,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ToolTip SeatLengthToolTIp;
-        private System.Windows.Forms.ToolTip SeatWidthToolTIp;
-        private System.Windows.Forms.ToolTip SeatThicknessToolTIp;
-        private System.Windows.Forms.ToolTip LegLengthToolTIp;
-        private System.Windows.Forms.ToolTip LegWidthToolTip;
-        private System.Windows.Forms.ToolTip LegHeightToolTip;
-        private System.Windows.Forms.ToolTip BondLengthToolTip;
-        private System.Windows.Forms.ToolTip BondWidthToolTip;
-        private System.Windows.Forms.ToolTip BondHeightToolTip;
+        private System.Windows.Forms.ToolTip ChairParametersToolTIp;
         private System.Windows.Forms.Button TestValuesButton;
     }
 }
