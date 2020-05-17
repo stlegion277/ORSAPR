@@ -75,7 +75,6 @@ namespace SolidworksChairPlugin.Model
             _solidWorksApi.SketchSelection();
             _solidWorksApi.DrawingRectangle(seatParameters.Width, seatParameters.Length);
             _solidWorksApi.FigureElongationBySketch(seatParameters.Thickness);
-            _solidWorksApi.FigureCutBySketch(seatParameters.Thickness, false);
             _solidWorksApi.RemoveAllocations();
 
         }
@@ -91,7 +90,6 @@ namespace SolidworksChairPlugin.Model
             _solidWorksApi.SketchSelection();
             _solidWorksApi.DrawingRectangleForLegs(seatParameters.Width, legParameters.Width);
             _solidWorksApi.FigureElongationBySketch(legParameters.Height);
-            _solidWorksApi.FigureCutBySketch(legParameters.Height, false);
             _solidWorksApi.RemoveAllocations();
         }
 

@@ -56,18 +56,8 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         public int Height
         {
-            get
-            {
-                return _height;
-            }
-            set
-            {
-                if (value < _legHeightMinValue || value > _legHeightMaxValue)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-                _height = value;
-            }
+            get => _height;
+            set => _height = CheckValueRange(value, _legHeightMinValue, _legHeightMaxValue);
         }
 
         /// <summary>
@@ -75,18 +65,8 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         public int Length
         {
-            get
-            {
-                return _length;
-            }
-            set
-            {
-                if (value < _legLengthMinValue || value > _legLengthMaxValue)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-                _length = value;
-            }
+            get => _length;
+            set => _length = CheckValueRange(value, _legLengthMinValue, _legLengthMaxValue);
         }
 
         /// <summary>
@@ -94,18 +74,8 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         public int Width
         {
-            get
-            {
-                return _width;
-            }
-            set
-            {
-                if (value != _length)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-                _width = _length;
-            }
+            get => _width;
+            set => _width = CheckDepenpdentValues(value, _length);
         }
         #endregion Свойства
 
@@ -116,6 +86,36 @@ namespace SolidworksChairPlugin.Model
         {
 
         }
-        
+
+        /// <summary>
+        /// Метод проверки параметров табурета
+        /// </summary>
+        /// <param name="value">параметр табурета</param>
+        /// <param name="min">минимально допустимое значение параметра табурета</param>
+        /// <param name="max">максимально допустимое значение параметра табурета</param>
+        private int CheckValueRange(int value, int min, int max)
+        {
+            if (value < min || value > max)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else
+            {
+                return value;
+            }
+        }
+
+        private int CheckDepenpdentValues(int parameter1, int parameter2)
+        {
+            if (parameter1 != parameter2)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else
+            {
+                return parameter1;
+            }
+        }
+
     }
 }

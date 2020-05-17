@@ -209,17 +209,6 @@ namespace SolidworksChairPlugin.Model
         }
 
         /// <summary>
-        /// Вырез фигуры по эскизу
-        /// </summary>
-        /// <param name="height">глубина выреза</param>
-        /// <param name="upDirection">направление выреза</param>
-        public void FigureCutBySketch(int height, bool upDirection = false)
-        {
-            _model.FeatureManager.FeatureCut4(true, false, upDirection, 0, 0, height, 0.01, false, false, false, false,
-               1.74532925199433E-02, 1.74532925199433E-02, false, false, false, false, false, true, true, true, true, false, 0, 0, false, false);
-        }
-
-        /// <summary>
         /// Вытягивание фигуры по эскизу
         /// </summary>
         /// <param name="height">высота вытягивания</param>

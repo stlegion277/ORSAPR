@@ -47,10 +47,7 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         public BondParameters BondParameters
         {
-            get
-            {
-                return _bondParameters;
-            }
+            get => _bondParameters;
             set
             {
                 if (value == null)
@@ -66,10 +63,7 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         public SeatParameters SeatParameters
         {
-            get
-            {
-                return _seatParameters;
-            }
+            get => _seatParameters;
             set
             {
                 if (value == null)
@@ -85,10 +79,7 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         public LegParameters LegParameters
         {
-            get
-            {
-                return _legParameters;
-            }
+            get => _legParameters;
             set
             {
                 if (value == null)
@@ -101,21 +92,6 @@ namespace SolidworksChairPlugin.Model
         #endregion Свойства
 
         #region Валидация
-        /// <summary>
-        /// Метод проверки параметров табурета
-        /// </summary>
-        /// <param name="parameter1">первый параметр табурета</param>
-        /// <param name="parameter2">второй параметр табурета</param>
-        /// <param name="min">минимально допустимое значение параметра табурета</param>
-        /// <param name="max">максимально допустимое значение параметра табурета</param>
-        public void CheckValueRange(int parameter1, int parameter2, int min, int max)
-        {
-            if (parameter1 < min || parameter2 > max)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-        }
-
         /// <summary>
         /// Проверка зависимых параметров
         /// </summary>
@@ -134,10 +110,27 @@ namespace SolidworksChairPlugin.Model
         public void ValidateParameters()
         {
             CheckDepenpdentValues(BondParameters.Width, LegParameters.Width);
-
             if (BondParameters.Length != (SeatParameters.Length - (LegParameters.Width * 2)))
             {
                 throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        /// <summary>
+        /// Метод проверки параметров табурета
+        /// </summary>
+        /// <param name="value">параметр табурета</param>
+        /// <param name="min">минимально допустимое значение параметра табурета</param>
+        /// <param name="max">максимально допустимое значение параметра табурета</param>
+        private int CheckValueIsNotNull(int value)
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException();
+            }
+            else
+            {
+                return value;
             }
         }
         #endregion Валидация

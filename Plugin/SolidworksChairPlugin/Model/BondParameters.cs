@@ -27,15 +27,6 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         private int _length;
 
-        /// <summary>
-        /// Обьект класса, который нужен для проверки зависимых параметров 
-        /// </summary>
-        private LegParameters _legParameters;
-
-        /// <summary>
-        /// Обьект класса, который нужен для проверки зависимых параметров
-        /// </summary>
-        private SeatParameters _seatParameters;
         #endregion Параметры
 
 
@@ -52,60 +43,12 @@ namespace SolidworksChairPlugin.Model
         #region Свойства
 
         /// <summary>
-        /// Свойство параметров сидушки
-        /// </summary>
-        public SeatParameters SeatParameters
-        {
-            get
-            {
-                return _seatParameters;
-            }
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException();
-                }
-                _seatParameters = value;
-            }
-        }
-
-        /// <summary>
-        /// Свойство параметров ножки
-        /// </summary>
-        public LegParameters LegParameters
-        {
-            get
-            {
-                return _legParameters;
-            }
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException();
-                }
-                _legParameters = value;
-            }
-        }
-
-        /// <summary>
         /// Свойства высоты связи между ножками табурет
         /// </summary>
         public int Height
         {
-            get
-            {
-                return _height;
-            }
-            set
-            {
-                if (value != _width)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-                _height = value;
-            }
+            get => _height;
+            set => _height = CheckDepenpdentValues(value, _width);
         }
 
         /// <summary>
@@ -113,18 +56,8 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         public int Length
         {
-            get
-            {
-                return _length;
-            }
-            set
-            {
-               if (value == 0)
-                {
-                    throw new ArgumentNullException();
-                }
-                _length = value;
-            }
+            get => _length;
+            set => _length = CheckValueIsNotNull(value);
         }
 
         /// <summary>
@@ -132,20 +65,41 @@ namespace SolidworksChairPlugin.Model
         /// </summary>
         public int Width
         {
-            get
-            {
-                return _width;
-            }
-            set
-            {
-                if (value == 0)
-                {
-                    throw new ArgumentNullException();
-                }
-                _width = value;
-            }
+            get => _width;
+            set => _width = CheckValueIsNotNull(value);
         }
         #endregion Свойства
+
+
+        /// <summary>
+        /// Метод проверки параметров табурета
+        /// </summary>
+        /// <param name="value">параметр табурета</param>
+        /// <param name="min">минимально допустимое значение параметра табурета</param>
+        /// <param name="max">максимально допустимое значение параметра табурета</param>
+        private int CheckValueIsNotNull(int value)
+        {
+            if (value == 0)
+            {
+                throw new ArgumentNullException();
+            }
+            else
+            {
+                return value;
+            }
+        }
+
+        private int CheckDepenpdentValues(int parameter1, int parameter2)
+        {
+            if (parameter1 != parameter2)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else
+            {
+                return parameter1;
+            }
+        }
     }
 
 }

@@ -73,8 +73,8 @@ namespace SolidworksChairPlugin
                 chairParameters.LegParameters.Length = int.Parse(LegLengthTextBox.Text);
                 chairParameters.LegParameters.Width = int.Parse(LegLengthTextBox.Text);
                 chairParameters.LegParameters.Height = int.Parse(LegHeightTextBox.Text);
-                chairParameters.BondParameters.SeatParameters = chairParameters.SeatParameters;
-                chairParameters.BondParameters.LegParameters = chairParameters.LegParameters;
+                chairParameters.SeatParameters = chairParameters.SeatParameters;
+                chairParameters.LegParameters = chairParameters.LegParameters;
                 chairParameters.BondParameters.Length = int.Parse(BondLengthTextBox.Text);
                 chairParameters.BondParameters.Width = int.Parse(BondWidthTextBox.Text);
                 chairParameters.BondParameters.Height = int.Parse(BondHeightTextBox.Text);
